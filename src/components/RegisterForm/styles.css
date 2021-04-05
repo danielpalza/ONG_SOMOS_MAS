@@ -1,0 +1,24 @@
+.container {
+    max-width: 600px !important;
+}
+
+.alert {
+    height: 100%;
+    font-size: 15px;
+    padding: 0 1.25rem !important;
+    margin-bottom: 0 !important;
+    margin-top: 2px;
+}
+
+.spacing {
+    margin: 5px 10px;
+}
+
+.btn {
+    width: 60%;
+    margin: 20px auto;
+}
+
+.form-control {
+    border: 2px solid #c4c7c7 !important;
+}
