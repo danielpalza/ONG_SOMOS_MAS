@@ -7,6 +7,12 @@ export const getHttpRequest = (url, data) => {
     return axios(config);
 };
 
+export const patchHttpRequest = (url, data) => {
+    const config = createAxiosConfig(url, data);
+    config.method = "patch";
+    return axios(config);
+}
+
 export const postHttpRequest = (url, data) => {
     const config = createAxiosConfig(url, data);
     config.method = "post";
