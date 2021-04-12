@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
-import fetchReducer from '../features/fetch/fetchSlice'
+import fetchReducer from '../components/fetch/fetchSlice'
 import { persistReducer } from 'redux-persist';
-import counterReducer from '../features/counter/counterSlice';
-import userReducer from '../features/user/userSlice';
+import counterReducer from '../components/counter/counterSlice';
+import userReducer from '../components/user/userSlice';
 
 const reducers = combineReducers({
   user: userReducer,
