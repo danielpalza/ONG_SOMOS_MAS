@@ -1,0 +1,15 @@
+nav>div {
+    font-size: 1.6em;
+    min-height: 50px;
+    padding: 1rem 4rem;
+}
+
+.logo-image {
+    width: 4vw;
+}
+
+@media (max-width: 600px) {
+    .logo-image {
+        width: 15vw;
+    }
+}

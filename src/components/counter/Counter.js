@@ -8,9 +8,7 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
-import {
-  Link
-} from "react-router-dom";
+import { Link } from 'react-router-dom';
 export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();

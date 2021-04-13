@@ -1,9 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const getHttpRequest = (url, data) => {
     const config = createAxiosConfig(url, data);
-    config.method = "get";
-
+    config.method = 'get';
     return axios(config);
 };
 
@@ -15,13 +14,13 @@ export const patchHttpRequest = (url, data) => {
 
 export const postHttpRequest = (url, data) => {
     const config = createAxiosConfig(url, data);
-    config.method = "post";
+    config.method = 'post';
 
     return axios(config);
 };
 
 const createAxiosConfig = (url, data) => {
-    const jwtToken = localStorage.getItem("token");
+    const jwtToken = localStorage.getItem('token');
 
     const axiosConfig = {
         url,

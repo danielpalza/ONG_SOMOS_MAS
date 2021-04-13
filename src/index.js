@@ -10,7 +10,6 @@ import { persistStore } from 'redux-persist';
 
 const persistor = persistStore(store);
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
