@@ -1,11 +1,11 @@
-import React from "react";
-import "./slider.css";
+import React from 'react';
+import './slider.css';
 
 function Slider({ width, slides }) {
   const $ = window.jQuery;
 
   $(document).ready(() => {
-    $(".bxslider").bxSlider({
+    $('.bxslider').bxSlider({
       slideWidth: width,
       adaptiveHeight: true,
     });

@@ -1,0 +1,27 @@
+.content-row {
+    height: 70vh;
+}
+
+.slider {
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .sliderNews {
+        margin-top: 160px !important;
+    }
+    .title {
+        padding-top: 120px;
+    }
+    .slider {
+        margin-top: 160px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 410px) {
+    .slider {
+        margin-top: 420px;
+        height: 100%;
+    }
+}

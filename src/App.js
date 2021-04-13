@@ -4,6 +4,7 @@ import './App.css';
 
 /* Componentes */
 import Home from './components/Home/home.js';
+
 import { Counter } from './components/counter/Counter';
 /* Modulos */
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
