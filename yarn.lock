@@ -295,9 +295,8 @@
   "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.8.3.tgz"
   "version" "7.8.3"
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
-    "@babel/plugin-syntax-decorators" "^7.8.3"
+    "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.0"
 
 "@babel/plugin-proposal-dynamic-import@^7.13.8", "@babel/plugin-proposal-dynamic-import@^7.8.3":
   "integrity" "sha512-ONWKj0H6+wIRCkZi9zSbZtE/r73uOhMVHh256ys0UzfM7I3d4n+spZNWjOnJv2gzopumP2Wxi186vI8N0Y2JyQ=="
@@ -448,7 +447,7 @@
   "resolved" "https://registry.npmjs.org/@babel/plugin-syntax-export-namespace-from/-/plugin-syntax-export-namespace-from-7.8.3.tgz"
   "version" "7.8.3"
   dependencies:
-    "@babel/helper-plugin-utils" "^7.8.3"
+    "@babel/helper-plugin-utils" "^7.12.13"
 
 "@babel/plugin-syntax-flow@^7.8.3":
   "integrity" "sha512-J/RYxnlSLXZLVR7wTRsozxKT8qbsx1mNKJzXEEjQ0Kjx1ZACcyHgbanNWNCFtc36IzuWhYWPpvJFFoexoOWFmA=="
@@ -6639,6 +6638,8 @@
   "resolved" "https://registry.npmjs.org/jest-each/-/jest-each-24.9.0.tgz"
   "version" "24.9.0"
   dependencies:
+    "@jest/core" "^24.9.0"
+    "@jest/test-result" "^24.9.0"
     "@jest/types" "^24.9.0"
     "chalk" "^2.0.1"
     "jest-get-type" "^24.9.0"
