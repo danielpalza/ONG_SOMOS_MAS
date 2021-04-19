@@ -4,6 +4,8 @@ import EmailInput from "../../components/EmailInput/EmailInput";
 import TextInput from "../../components/TextInput/TextInput";
 import CustomButton from "../CustomButton/CustomButton";
 
+import axios from "axios";
+
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,8 +26,23 @@ function Contact() {
       submitted.name = name;
       submitted.email = email;
       submitted.message = message;
+      createContact(name, email, message);
     }
   };
+  const createContact = async (name, email, message) => {
+    try {
+      const res = await axios.post("https://localhost:3306/contacts", {
+        name,
+        email,
+        message,
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      setError("Error, try again");
+    }
+  };
+
   return (
     <div className="container-md mt-4">
       <div className="row no-gutters d-flex justify-content-center">
