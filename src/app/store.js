@@ -9,22 +9,22 @@ import newsReducer from '../components/edit/news/newsSlice';
 import userReducer from '../components/user/userSlice';
 
 const reducers = combineReducers({
-  user: userReducer,
+    user: userReducer,
 });
 
 const persistConfig = {
-  key: 'root',
-  storage,
+    key: 'root',
+    storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export default configureStore({
-  reducer: {
-    counter: counterReducer,
-    activity: actsReducer,
-    news: newsReducer,
-    user: persistedReducer,
-    fetch: fetchReducer,
-  },
+    reducer: {
+        counter: counterReducer,
+        activity: actsReducer,
+        news: newsReducer,
+        user: persistedReducer,
+        fetch: fetchReducer,
+    },
 });
