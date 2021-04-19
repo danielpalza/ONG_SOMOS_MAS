@@ -3,6 +3,7 @@ import { links } from '../../utils/navMenuLinks';
 import { getHttpRequest } from '../../helper/axios/index';
 import Loader from '../Loader/index';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [state, setState] = useState({});
@@ -44,12 +45,12 @@ const Header = () => {
             id="collapse_target"
           >
             <ul className="navbar-nav">
-              {links.map((routes, index) => {
+              {links.map(({ route, text }, index) => {
                 return (
                   <li className="nav-item" key={index}>
-                    <a className="nav-link text-uppercase" href={routes.route}>
-                      {routes.text}
-                    </a>
+                    <Link to={route} className="nav-link text-uppercase">
+                      {text}
+                    </Link>
                   </li>
                 );
               })}

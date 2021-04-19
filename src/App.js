@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 
 /* Componentes */
-import HomeScreen from './pages/homeScreen/homeScreen';
-import Testimonials from './pages/backoffice/testimonial/testimonials';
-import { Counter } from './components/counter/Counter';
+import HomePage from './pages/homeScreen/homeScreen';
+import Header from './components/Header/Header';
+import Footer from './components/Footer';
+import ProfileScreen from './components/ProfileScreen';
 /* Modulos */
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -12,16 +13,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <Switch>
-            <Route path="/counter">
-              <Counter />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </header>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/my-profile" component={ProfileScreen} />
+        </Switch>
+        <Footer />
       </div>
     </Router>
   );
