@@ -9,7 +9,7 @@ export const userSlice = createSlice({
     login: (state, action) => {
       state.user = action.payload;
     },
-    logout: (state) => {
+    logout: state => {
       window.localStorage.removeItem('token');
       // clear persistent user
       state.user = null;
@@ -19,6 +19,6 @@ export const userSlice = createSlice({
 
 export const { login, logout } = userSlice.actions;
 
-export const getLoggedUser = (state) => state.user.user;
+export const getLoggedUser = state => state.user.user;
 
 export default userSlice.reducer;

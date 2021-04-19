@@ -19,7 +19,7 @@ function App() {
             <Route path="/counter">
               <Counter />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
           </Switch>
