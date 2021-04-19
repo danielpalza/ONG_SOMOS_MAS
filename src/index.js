@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
-
 const persistor = persistStore(store);
 
 ReactDOM.render(
@@ -18,7 +17,7 @@ ReactDOM.render(
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

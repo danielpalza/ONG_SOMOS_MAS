@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 /* Componentes */
-import Home from './components/Home/home.js';
-
+import HomeScreen from './pages/homeScreen/homeScreen';
+import Testimonials from './pages/backoffice/testimonial/testimonials';
 import { Counter } from './components/counter/Counter';
 /* Modulos */
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -14,7 +13,6 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <Switch>
             <Route path="/counter">
               <Counter />

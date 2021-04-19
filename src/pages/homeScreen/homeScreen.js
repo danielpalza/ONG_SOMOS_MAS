@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SliderNews from '../../components/SliderNews/SliderNews';
 import Slider from '../../components/slider/Slider';
+import Header from '../../components/Header/Header';
 import { getHttpRequest } from '../../helper/axios/index';
 import { news } from '../../utils/homeContent';
 import './homeScreen.css';
@@ -21,7 +22,7 @@ const HomeScreen = () => {
     },
     {
       imgUrl:
-        'https://www.cato5.cl/slider/fotos%20sindicato/carpeta%20sin%20t%C3%ADtulo/fotos%20usadas/01.jpg',
+        'https://store.hp.com/app/assets/images/uploads/prod/25-best-hd-wallpapers-laptops159561982840438.jpg',
       label: 'lorem ipsum3',
     },
   ];
@@ -33,6 +34,8 @@ const HomeScreen = () => {
 
   return (
     <>
+      <Header />
+
       <div className="container">
         <div className="row d-flex justify-content-center align-items-center content-row">
           <div className="title col-12 text-sm-left text-md-left text-lg-center">
