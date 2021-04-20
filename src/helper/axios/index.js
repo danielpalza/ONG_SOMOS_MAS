@@ -3,46 +3,46 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:3000';
 
 export const getHttpRequest = (url, data) => {
-  const config = createAxiosConfig(`${BASE_URL}${url}`, data);
-  config.method = 'get';
+    const config = createAxiosConfig(`${BASE_URL}${url}`, data);
+    config.method = 'get';
 
-  return axios(config);
+    return axios(config);
 };
 
 export const patchHttpRequest = (url, data) => {
-  const config = createAxiosConfig(url, data);
-  config.method = 'patch';
-  return axios(config);
+    const config = createAxiosConfig(url, data);
+    config.method = 'patch';
+    return axios(config);
 };
 
 export const postHttpRequest = (url, data) => {
-  const config = createAxiosConfig(`${BASE_URL}${url}`, data);
-  config.method = 'post';
+    const config = createAxiosConfig(`${BASE_URL}${url}`, data);
+    config.method = 'post';
 
-  return axios(config);
+    return axios(config);
 };
 
 export const deleteHttpRequest = url => {
-  const config = createAxiosConfig(`${BASE_URL}${url}`);
-  config.method = 'delete';
+    const config = createAxiosConfig(`${BASE_URL}${url}`);
+    config.method = 'delete';
 
-  return axios(config);
+    return axios(config);
 };
 
 const createAxiosConfig = (url, data) => {
-  const jwtToken = localStorage.getItem('token');
+    const jwtToken = localStorage.getItem('token');
 
-  const axiosConfig = {
-    url,
-  };
+    const axiosConfig = {
+        url,
+    };
 
-  if (data) {
-    axiosConfig.data = data;
-  }
+    if (data) {
+        axiosConfig.data = data;
+    }
 
-  if (jwtToken) {
-    axiosConfig.headers = { token: jwtToken };
-  }
+    if (jwtToken) {
+        axiosConfig.headers = { token: jwtToken };
+    }
 
-  return axiosConfig;
+    return axiosConfig;
 };

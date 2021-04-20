@@ -1,50 +1,40 @@
-import React from 'react'
-import axios from 'axios'
-import './news.css'
-
-
-const initalState = [
-    {id: 1, title: 'Title 1', image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png', createdAt: 'CreationDate'},
-    {id: 2, title: 'Title 2', image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png', createdAt: 'CreationDate'},
-    {id: 3, title: 'Title 3', image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png', createdAt: 'CreationDate'},
-    {id: 4, title: 'Title 4', image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png', createdAt: 'CreationDate'}
-];
+import React from 'react';
+import { getHttpRequest } from '../../helper/axios/index';
+import { Link } from 'react-router-dom';
+import './news.css';
 
 class NewsPublic extends React.Component {
-    state={
-        id: '',
-        title: '',
-        image: '',
-        data: initalState
-    }
-    //function to get news from db 
-    getNews() {
-        axios.get('news/')
-        .then(res => {
-          let newData = res.data;
-          this.setState({
-            id: newData[newData.length - 1].id + 1,
-            data: newData
-          })
-        })
-        .catch(err => console.log("Couldn't fetch data. Error: " + err))
-    }
+  state = {
+    data: [],
+  };
+  //function to get news from db
+  componentDidMount() {
+    getHttpRequest('/news')
+      .then(res => {
+        this.setState({
+          data: res.data,
+        });
+      })
+      .catch(err => console.log("Couldn't fetch data. Error: " + err));
+  }
 
-    render (){
-        return (
-            <div className= 'cards'>
-                {this.state.data.map((element) => (
-                                <div className='card'>
-                                    <img src={element.image} className='card-img-top'/>
-                                    <div className='card-body'>
-                                        <h5 className='card-title'>{element.title}</h5>
-                                        <a href='#' class='btn btn-primary'>Details</a>
-                                    </div>
-                                </div>
-                            ))}
+  render() {
+    return (
+      <div className="cards">
+        {this.state.data.map(element => (
+          <div key={element.id} className="card">
+            <img src={element.image} className="card-img-top" alt="img" />
+            <div className="card-body">
+              <h5 className="card-title"> {element.name} </h5>
+              <Link to={`/novedades/${element.id}`}>
+                <button className="btn btn-primary">Details</button>
+              </Link>
             </div>
-        )
-    }
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default NewsPublic;
