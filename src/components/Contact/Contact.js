@@ -31,7 +31,7 @@ function Contact() {
   };
   const createContact = async (name, email, message) => {
     try {
-      const res = await axios.post("https://localhost:3306/contacts", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/contacts`, {
         name,
         email,
         message,

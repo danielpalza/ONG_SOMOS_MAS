@@ -24,7 +24,7 @@ let redirect = null;
 //Make axios request to the endpoint of login, if auth is correct, change "redirect" to "/" and make
 // a redirect, on other case, throw a alert message with swal
 async function requestLogin(user) {
-  let indexUrl = "http://localhost:3000"; // Change later with the real url of the server.
+  let indexUrl = `${process.env.REACT_APP_API_URL}`; // Change later with the real url of the server.
   let err = await postHttpRequest(indexUrl + "/auth/login", user)
     .then((res) => {
       //saves the data of the user for later use

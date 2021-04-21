@@ -21,17 +21,17 @@ export default function EditOrganization() {
   };
 
   const updateData = async (values) => {
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:4000/backoffice/edit-organization",
-    //     {
-    //       values,
-    //     }
-    //   );
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/backoffice/edit-organization`,
+        {
+          values,
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -11,8 +11,8 @@ import SucessAlert from '../SucessAlert'
 
 import Loader from '../Loader'
 function EditUserForm({ userId }) {
-    const USER_URL = 'http://localhost:3000/users'
-    const ROLE_URL = 'http://localhost:3000/role'
+    const USER_URL = `${process.env.REACT_APP_API_URL}/users`
+    const ROLE_URL = `${process.env.REACT_APP_API_URL}/role`
     const [user, setUser] = useState()
     const [roles, setRoles] = useState([])
     //Add state to handle a succesfully request  until a global state is implemented

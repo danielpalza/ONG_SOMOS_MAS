@@ -17,7 +17,7 @@ const Footer = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      const res = await axios.get("http://localhost:3001/organizations/1/public");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/organizations/1/public`);
       const { name, image, address, facebook, instagram, linkedin } = res.data.data;
       setUser({name, image, address});
       setSocialMedia({facebook, instagram, linkedin});

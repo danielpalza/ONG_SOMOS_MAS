@@ -11,7 +11,7 @@ import Loader from '../Loader'
 import validationSchema from './validationSchema'
 import editorConfiguration from './editConfiguration'
 
-const URL = 'http://localhost:3000/activities'
+const URL = `${process.env.REACT_APP_API_URL}/activities`
 
 
 

@@ -9,7 +9,7 @@ const Header = () => {
   const [state, setState] = useState({});
 
   useEffect(() => {
-    getHttpRequest('http://localhost:3001/organizations/1/public')
+    getHttpRequest(`${process.env.REACT_APP_API_URL}/organizations/1/public`)
       .then(res => {
         setState(res.data);
       })
