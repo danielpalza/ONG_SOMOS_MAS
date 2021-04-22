@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { links } from '../../utils/navMenuLinks';
 import { getHttpRequest } from '../../helper/axios/index';
-import Loader from '../Loader/index';
+import Loader from '../../components/Loader';
 import './Header.css';
 import { Link } from 'react-router-dom';
 

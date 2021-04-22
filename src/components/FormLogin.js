@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ErrorAlert from "./ErrorAlert";
 import { Redirect } from "react-router-dom";
-import { postHttpRequest } from "../helper/axios";
-//import { Redirect } from "react-router-dom";
+import { getHttpRequest, postHttpRequest } from "../helper/axios";
+import { useDispatch } from "react-redux";
+import { login } from "./user/userSlice";
 
 //Schema of validation of the values
 const validationSchema = Yup.object().shape({
@@ -18,28 +19,6 @@ const validationSchema = Yup.object().shape({
     .required("Debe ingresar una contraseña."),
 });
 
-//mantain the redirect
-let redirect = null;
-
-//Make axios request to the endpoint of login, if auth is correct, change "redirect" to "/" and make
-// a redirect, on other case, throw a alert message with swal
-async function requestLogin(user) {
-  let indexUrl = `${process.env.REACT_APP_API_URL}`; // Change later with the real url of the server.
-  let err = await postHttpRequest(indexUrl + "/auth/login", user)
-    .then((res) => {
-      //saves the data of the user for later use
-      localStorage.setItem("user", res.data);
-      redirect = "/";
-    })
-    .catch((error) => {
-      return {
-        error: true,
-        message: "No se pudo iniciar sesion debido a un error.",
-      };
-    });
-
-  return err;
-}
 
 function FormLogin() {
   //Form to enter the data to make a request and login
@@ -48,27 +27,39 @@ function FormLogin() {
 
   //State to the messages to show
   const [message, setMessage] = useState();
+  const [redirect, setRedirect] = useState()
 
-  //Redirect to "/" when the request is ok
+  const dispatch = useDispatch()
+
   if (redirect) {
     return <Redirect to={redirect} />;
   }
 
   //handle the petition to requestLogin, and set message to what is return
   const handleLogin = (user, setSubmitting) => {
-    requestLogin(user)
-      .then((res) => {
-        if (res.error) {
-          setMessage(
-            ErrorAlert({
-              title: "Ocurrio un error",
-              text: res.message,
-            })
-          );
-          setSubmitting(false)
-        }
+    const {email, password} = user
+    postHttpRequest("/auth/login", {email, password})
+      .then(res => {
+        const {token} = res.data
+        window.localStorage.setItem('token', token);
+        // save user Info in Redux
+        getHttpRequest('/auth/me').then(res => {
+          console.log(res.data);
+          dispatch(login(res.data))
+          setRedirect("/")
+        })
       })
-      .catch((err) => err);
+      .catch(error => {
+        let errorMessage = "Ha ocurrido un error al iniciar sesión."
+        if(error.response){
+          errorMessage = error.response.data.error || errorMessage
+        }
+        setMessage(
+          ErrorAlert({
+          text: errorMessage
+        }))
+        setSubmitting(false)
+      })
   };
 
   return (

@@ -41,7 +41,7 @@ const createAxiosConfig = (url, data) => {
     }
 
     if (jwtToken) {
-        axiosConfig.headers = { token: jwtToken };
+        axiosConfig.headers = { Authorization: jwtToken };
     }
 
     return axiosConfig;
