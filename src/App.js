@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 /* Componentes */
-import HomePage from './pages/homeScreen/homeScreen';
+import HomePage from './pages/HomeScreen/homeScreen';
 import Header from './components/Header/Header';
 import Footer from './components/Footer';
 import ProfileScreen from './components/ProfileScreen';

@@ -4,8 +4,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validation } from './utils';
 import { useSelector } from 'react-redux';
-import { selectNews } from '../edit/news/newsSlice';
-import { postHttpRequest, patchHttpRequest } from '../../helper/axios';
+import { selectNews } from '../../../components/edit/news/newsSlice';
+import { postHttpRequest, patchHttpRequest } from '../../../helper/axios';
 import { useHistory } from 'react-router';
 
 function NewsForm() {

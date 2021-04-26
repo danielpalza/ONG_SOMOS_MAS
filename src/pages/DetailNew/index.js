@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { requestNews } from './utils';
-import ErrorAlert from '../ErrorAlert';
+import ErrorAlert from '../../components/ErrorAlert';
 import './style.css';
 
 function Index() {

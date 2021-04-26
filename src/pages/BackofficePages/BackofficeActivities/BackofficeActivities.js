@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getHttpRequest } from '../../helper/axios/index';
+import { getHttpRequest } from '../../../helper/axios/index';
 import Activity from './Activity';
 
 function BackofficeActivities() {
@@ -21,7 +21,7 @@ function BackofficeActivities() {
 
   return (
     <div className="container">
-      <h2>Activities</h2>
+      <h2> Activities </h2>
       <div className="container mt-3">
         {activities.map(activity => (
           <Activity key={activity.id} activity={activity} />

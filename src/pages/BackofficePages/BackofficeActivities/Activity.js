@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setActivity } from '../edit/activities';
-import { deleteHttpRequest } from '../../helper/axios';
+import { setActivity } from '../../../components/edit/activities';
+import { deleteHttpRequest } from '../../../helper/axios';
 
 function Activity({ activity }) {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function Activity({ activity }) {
       key={activity.id}
       className="row d-flex justify-content-between mb-4 mb-sm-3"
     >
-      <h3 className="col-sm-4 text-sm-left">{activity.name}</h3>
+      <h3 className="col-sm-4 text-sm-left"> {activity.name} </h3>
       <button
         onClick={handleEdit}
         className="btn btn-primary col-sm-2 mb-1 mb-sm-0"

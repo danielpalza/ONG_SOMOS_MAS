@@ -7,27 +7,26 @@ import './style.css';
 function DetailActivity() {
   const [detailActivity, setDetail] = useState();
   //Message from ErrorAlert
-  const [message, setMessage] = useState({title:'', text:''});
+  const [message, setMessage] = useState({ title: '', text: '' });
   const [error, setError] = useState(true);
   //Redirect to home
   const [redirect, setRedirect] = useState(false);
   let { id } = useParams();
 
-
-  useEffect(() => {console.log({id})
+  useEffect(() => {
+    console.log({ id });
     if (id) {
       requestActivity(id)
         .then(res => setDetail(res.data))
-        .catch(err =>{
-          setError(true)
+        .catch(err => {
+          setError(true);
           setMessage({
-            title: 'Ocurrio un error!', 
-            text: 'No se encontro la actividad pedida.' 
-          })  
+            title: 'Ocurrio un error!',
+            text: 'No se encontro la actividad pedida.',
+          });
         });
     }
   }, [id]);
-
 
   //When redirect is true, redirect to home
   if (redirect) {
@@ -36,8 +35,8 @@ function DetailActivity() {
 
   return (
     <Fragment>
-      {error ?<ErrorAlert title = {message.title} text = {message.text} />:''}
-    
+      {error ? <ErrorAlert title={message.title} text={message.text} /> : ''}
+
       {detailActivity !== undefined ? (
         <main className="rounded shadow container-fluid p-2 d-flex flex-column w-50 align-items-center">
           <div className="text-left w-100 m-2 rounded ">
