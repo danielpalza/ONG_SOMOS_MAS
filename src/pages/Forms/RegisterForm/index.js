@@ -6,7 +6,6 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { postData, registerSchema } from './utils';
 
 import './styles.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegisterForm = () => {
   const inicialValues = {

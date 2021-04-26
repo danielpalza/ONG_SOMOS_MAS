@@ -1,46 +1,55 @@
 import React, { useEffect, useState } from 'react';
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validation } from './utils';
+import { useHistory, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { selectNews } from '../../../components/edit/news/newsSlice';
-import { postHttpRequest, patchHttpRequest } from '../../../helper/axios';
-import { useHistory } from 'react-router';
+import {
+  postHttpRequest,
+  patchHttpRequest,
+  getHttpRequest,
+} from '../../../helper/axios';
 
-function NewsForm() {
-  const [title, setTitle] = useState('');
-  const [image, setImage] = useState(null);
-  const [category, setCategory] = useState('');
-  const [content, setContent] = useState('');
-  const news = useSelector(selectNews);
+function NewsForm(props) {
+  const { id } = useParams();
+  const [news, setNews] = useState('');
   const [forEdit, setForEdit] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
-    setForEdit(news ? true : false);
-    if (forEdit) {
-      const { title, image, category, content } = news;
-      setTitle(title);
-      setImage(image);
-      setCategory(category);
-      setContent(content);
+    if (id) {
+      getHttpRequest(`/news/${id}`).then(response => {
+        console.log(response);
+        setNews(response.data.entry);
+        setForEdit(true);
+      });
     }
   }, []);
 
   const handlePost = async values => {
     await postHttpRequest('/news', values);
-    history.push('/novedades');
+    history.goBack();
   };
 
   const handleEdit = async values => {
     await patchHttpRequest(`/news/${news.id}`, values);
-    history.push('/novedades');
+    history.goBack();
+  };
+
+  const inicialValues = {
+    title: news.name || '',
+    image: news.image || '',
+    category: news.categoryId || '',
+    content: news.content || '',
   };
 
   return (
     <Formik
-      initialValues={{ title, image, category, content }}
+      initialValues={inicialValues}
       validationSchema={validation}
       onSubmit={values => (forEdit ? handlePost(values) : handleEdit(values))}
     >
@@ -96,7 +105,7 @@ function NewsForm() {
             render={({ field, form }) => (
               <>
                 <CKEditor
-                  editor={ClassicEditor}
+                  editor={Editor}
                   data={field.value}
                   onChange={(e, editor) =>
                     form.setFieldValue(field.name, editor.getData())
@@ -143,7 +152,7 @@ function NewsForm() {
         <div className="row my-sm-5">
           <div className="col-md-4 col-lg-3">
             <button
-              onClick={e => history.push('/news')}
+              onClick={e => history.goBack()}
               className={'btn btn-secondary btn-block'}
             >
               Cancel

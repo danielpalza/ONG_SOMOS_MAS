@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { requestNews } from './utils';
-import ErrorAlert from '../../components/ErrorAlert';
+import ErrorAlert from '../../components/Alerts/ErrorAlert';
 import './style.css';
 
 function Index() {
@@ -27,9 +27,9 @@ function Index() {
     }
   }, [id]);
 
-  //When redirect is true, redirect to home
+  //When redirect is true, redirect to News Page
   if (redirect) {
-    return <Redirect to="/" />;
+    return <Redirect to="/news" />;
   }
 
   return (

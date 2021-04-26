@@ -1,36 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
-
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   failFetch,
   selectFetch,
   setLoading,
-} from '../../features/fetch/fetchSlice';
-import { postHttpRequest, patchHttpRequest } from '../../../helper/axios';
-import ErrorAlert from '../ErrorAlert';
+} from '../../../components/fetch/fetchSlice';
+import {
+  postHttpRequest,
+  patchHttpRequest,
+  getHttpRequest,
+} from '../../../helper/axios';
+import ErrorAlert from '../../../components/Alerts/ErrorAlert';
 import Loader from '../../../components/Loader';
 import validationSchema from './validationSchema';
 import editorConfiguration from './editConfiguration';
+import { useParams } from 'react-router';
 
-const URL = `${process.env.REACT_APP_API_URL}/activities`;
+function ActivityForm(props) {
+  const { id } = useParams();
 
-function ActivityForm({ id = null, name, data }) {
+  useEffect(() => {
+    if (id) {
+      //TODO: the endPoint does not exists yet so we need ot change the following request
+      //depending on the structure of the response
+      getHttpRequest(`/activities/${id}`).then(response =>
+        setActivityData(response)
+      );
+    }
+  }, []);
+
   const [isModeEdit, setIsModeEdit] = useState(id ? true : false);
-  const intialValue = {
-    name: name || '',
-    data: data || '',
-  };
+  const [activityData, setActivityData] = useState('');
+
   const fetch = useSelector(selectFetch);
   const dispatch = useDispatch();
-  console.log(fetch);
   const handleOnCancel = e => {
     e.preventDefault();
-    // #TODO : should return  to previous screen when the router is implemented
     alert('Operation cancel');
+    props.history.goBack();
   };
+
   const handleSubmit = async activity => {
     dispatch(setLoading());
     let url;
@@ -39,13 +51,19 @@ function ActivityForm({ id = null, name, data }) {
       //#TODO :  Test endpoint when implemented
       // await patchHttpRequest(url, { id, ...activity })
       alert('Editado');
+      props.history.goBack();
     } else {
       //#TODO :   Test endpoint when implemented
       //await postHttpRequest(url, activity)
       alert('Creado');
+      props.history.goBack();
     }
   };
 
+  const intialValue = {
+    name: activityData.name || '',
+    data: activityData.content || '',
+  };
   return (
     <>
       {fetch.loading ? (

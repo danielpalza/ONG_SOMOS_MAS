@@ -70,9 +70,9 @@ class NewsBack extends React.Component {
       .catch(err => console.log("Couldn't fetch data. Error: " + err));
   }
 
-  handleEdit() {
-    //function to edit new
-  }
+  handleEdit = urlId => {
+    this.props.history.push(this.props.location.pathname + `/${urlId}`);
+  };
 
   render() {
     return (
@@ -96,11 +96,17 @@ class NewsBack extends React.Component {
                   <td>{element.image}</td>
                   <td>{element.createdAt}</td>
                   <td>
-                    <Button onClick={this.handleEdit} color="primary">
+                    <Button
+                      onClick={() => this.handleEdit(element.id)}
+                      color="primary"
+                    >
                       Edit
                     </Button>
 
-                    <Button onClick={this.deleteNew(element.id)} color="danger">
+                    <Button
+                      onClick={() => this.deleteNew(element.id)}
+                      color="danger"
+                    >
                       Delete
                     </Button>
                   </td>

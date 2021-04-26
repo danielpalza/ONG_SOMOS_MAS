@@ -26,7 +26,7 @@ class NewsPublic extends React.Component {
             <img src={element.image} className="card-img-top" alt="img" />
             <div className="card-body">
               <h5 className="card-title"> {element.name} </h5>
-              <Link to={`/novedades/${element.id}`}>
+              <Link to={`/news/${element.id}`}>
                 <button className="btn btn-primary">Details</button>
               </Link>
             </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SliderNews from '../../components/SliderNews/SliderNews';
 import Slider from '../../components/slider/Slider';
-import Header from '../../components/Header/Header';
 import { getHttpRequest } from '../../helper/axios/index';
 import { news } from '../../utils/homeContent';
 import './homeScreen.css';
@@ -34,8 +33,6 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Header />
-
       <div className="container">
         <div className="row d-flex justify-content-center align-items-center content-row">
           <div className="title col-12 text-sm-left text-md-left text-lg-center">

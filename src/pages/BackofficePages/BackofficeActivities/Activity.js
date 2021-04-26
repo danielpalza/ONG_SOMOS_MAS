@@ -1,16 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory, useLocation } from 'react-router';
 import { setActivity } from '../../../components/edit/activities';
 import { deleteHttpRequest } from '../../../helper/axios';
 
 function Activity({ activity }) {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
 
   const handleEdit = () => {
     dispatch(
       setActivity({ id: activity.id, name: activity.name, data: activity.data })
-      //history.push(form location)
     );
+    history.push(location.pathname + `/${activity.id}`);
   };
 
   const handleDelete = async () => {

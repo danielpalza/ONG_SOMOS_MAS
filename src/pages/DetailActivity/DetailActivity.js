@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { requestActivity } from './utils';
-import ErrorAlert from '../ErrorAlert';
+import ErrorAlert from '../../components/Alerts/ErrorAlert';
 import './style.css';
 
 function DetailActivity() {

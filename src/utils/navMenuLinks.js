@@ -1,4 +1,8 @@
 export const links = [
-  { text: 'home', route: '/' },
-  { text: 'me', route: '/my-profile' },
+  { text: 'Home', route: '/' },
+  { text: 'Activities', route: '/activity' },
+  { text: 'News', route: '/news' },
+  { text: 'Contact Us', route: '/contact-us' },
+  { text: 'Register', route: '/register' },
+  { text: 'Login', route: '/login' },
 ];
