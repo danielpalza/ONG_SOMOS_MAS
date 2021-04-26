@@ -1,11 +1,11 @@
 import React, { useDebugValue, useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import ErrorAlert from './ErrorAlert';
+import ErrorAlert from '../../../components/Alerts/ErrorAlert';
 import { Redirect } from 'react-router-dom';
-import { getHttpRequest, postHttpRequest } from '../helper/axios';
+import { getHttpRequest, postHttpRequest } from '../../../helper/axios';
 import { useDispatch } from 'react-redux';
-import { login } from './user/userSlice';
+import { login } from '../../../components/user/userSlice';
 
 //Schema of validation of the values
 const validationSchema = Yup.object().shape({

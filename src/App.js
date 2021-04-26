@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 
 /* Componentes */
-import HomePage from './pages/HomeScreen/homeScreen';
+import HomePage from './pages/homeScreen/homeScreen';
 import Header from './components/Header/Header';
-import Footer from './components/Footer';
-import ProfileScreen from './components/ProfileScreen';
+import Footer from './components/Footer/Footer';
+import ProfileScreen from './pages/Forms/ProfileScreen/ProfileScreen';
 import Login from './pages/login';
 import Logout from './pages/logout/Logout';
 /* Modulos */
