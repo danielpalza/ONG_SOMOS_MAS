@@ -88,7 +88,7 @@ function FormLogin() {
         }) => (
           <form
             onSubmit={handleSubmit}
-            className="border border-primary rounded p-5 d-flex flex-column align-items-center form-group"
+            className="rounded p-5 d-flex flex-column align-items-center form-group"
           >
             <h1>Login</h1>
             <div className=" flex-column d-flex m-2 p-2">
@@ -102,8 +102,8 @@ function FormLogin() {
                 placeholder="Ingrese su email"
                 className={
                   touched.email && errors.email
-                    ? 'border border-danger form-control'
-                    : 'border border-success form-control'
+                    ? "border border-danger form-control"
+                    : touched.email? "border border-success form-control":"border form-control"
                 }
               />
               <ErrorMessage
@@ -123,8 +123,8 @@ function FormLogin() {
                 placeholder="Ingrese su contraseña"
                 className={
                   touched.password && errors.password
-                    ? 'border border-danger form-control'
-                    : 'border border-success form-control'
+                    ? "border border-danger form-control"
+                    : touched.password? "border border-success form-control":"border form-control"
                 }
               />
               <ErrorMessage

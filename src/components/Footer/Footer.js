@@ -36,7 +36,7 @@ const Footer = () => {
   const { name, image, address } = user;
 
   return (
-    <footer className="bg-dark text-white">
+    <footer className="bg-secondary text-white">
       <div className=" row container-fluid py-3 d-flex justify-content-around">
         <div className="col-12 col-sm-3 d-flex flex-column  align-items-center">
           <h4>ONG Team 22</h4>

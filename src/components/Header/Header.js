@@ -17,12 +17,12 @@ const Header = () => {
   }, []);
 
   const { image } = state;
-
+  
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-light"
-        style={{ backgroundColor: '#e3f2fd' }}
+        className="navbar navbar-expand-lg navbar-light bg-primary"
+       
       >
         <div className="container-fluid">
           {image ? (

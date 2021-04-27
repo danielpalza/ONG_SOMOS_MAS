@@ -111,7 +111,7 @@ function ActivityForm(props) {
             </button>
             {isModeEdit && (
               <button
-                className="btn btn-outline-primary"
+                className="btn btn-outline-secondary"
                 onClick={handleOnCancel}
               >
                 Cancel

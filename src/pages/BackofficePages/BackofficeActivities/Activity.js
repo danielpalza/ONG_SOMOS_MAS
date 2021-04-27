@@ -31,7 +31,7 @@ function Activity({ activity }) {
       >
         Edit
       </button>
-      <button onClick={handleDelete} className="btn btn-danger col-sm-2">
+      <button onClick={handleDelete} className="btn btn-secondary col-sm-2">
         Delete
       </button>
     </div>

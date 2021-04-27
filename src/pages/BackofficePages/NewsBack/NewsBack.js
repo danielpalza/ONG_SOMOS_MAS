@@ -96,19 +96,13 @@ class NewsBack extends React.Component {
                   <td>{element.image}</td>
                   <td>{element.createdAt}</td>
                   <td>
-                    <Button
-                      onClick={() => this.handleEdit(element.id)}
-                      color="primary"
-                    >
+                    <button onClick={this.handleEdit} className="btn btn-primary" >
                       Edit
-                    </Button>
+                    </button>
 
-                    <Button
-                      onClick={() => this.deleteNew(element.id)}
-                      color="danger"
-                    >
+                    <button onClick={this.deleteNew(element.id)} className="btn btn-secondary">
                       Delete
-                    </Button>
+                    </button>
                   </td>
                 </tr>
               ))}

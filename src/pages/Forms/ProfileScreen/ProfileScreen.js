@@ -64,13 +64,13 @@ const ProfileScreen = () => {
           <input
             onClick={deleteUser}
             type="button"
-            className="mr-2 btn btn-danger"
+            className="mr-2 btn btn-secondary"
             value="Delete"
           />
           <input
             onClick={updateUser}
             type="button"
-            className="mr-2 btn btn-info"
+            className="mr-2 btn btn-primary"
             value="Update"
           />
         </div>
