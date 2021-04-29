@@ -25,9 +25,9 @@ const layout = () => {
       <Header />
       <section>
         <Switch>
-          <Route path="/activity/:id" component={DetailActivity} />
+          {/* <Route path="/activity/:id" component={DetailActivity} />  commented only for presentation */}
           {/* PAGE TO LIST ALL THE ACTIVITIES IS MISSING */}
-          <Route path="/activity" exact component={HomePage} />
+          {/* <Route path="/activity" exact component={HomePage} /> commented only for presentation  */}
           <Route path="/news/:id" component={NewsDetailedPage} />
           <Route path="/news" exact component={NewsPage} />
           <Route path="/contact-us" component={ContactPage} />
