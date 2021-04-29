@@ -12,55 +12,63 @@ import TestimonialPage from '../../pages/BackofficePages/TestimonialBack/testimo
 /* Modulos */
 
 import { Switch, Route } from 'react-router-dom';
+import ProtectedAdmin from '../ProtectedRoutes/ProtectedAdmin';
 
-const BackOfficeRoutes = [
-  <Route
-    key="back-office/testimonials"
-    path="/back-office/testimonials"
-    exact
-    component={TestimonialPage}
-  />,
+function BackOfficeRoutes(){ 
+  return (
+    <>
+      <Route path="/back-office/testimonials"
+        exact
+      >
+        <ProtectedAdmin component={TestimonialPage}/>
+      </Route>
 
-  <Route
-    key="back-office/news/:id"
-    path="/back-office/news/:id"
-    component={NewsBackOfficeEditPage}
-  />,
+      <Route
+        path="/back-office/news/:id"
+      >
+        <ProtectedAdmin component={NewsBackOfficeEditPage}/>
+      </Route>
 
-  <Route
-    key="back-office/news"
-    path="/back-office/news"
-    exact
-    component={NewsBackOfficePage}
-  />,
+      <Route
+        path="/back-office/news"
+        exact
+      >
+        <ProtectedAdmin component={NewsBackOfficePage}/>
+      </Route>
 
-  <Route
-    key="back-office/organization/:id"
-    path="/back-office/organization/:id"
-    component={EditOrganizationPage}
-  />,
+      <Route
+        path="/back-office/organization/:id"
+      >
+        <ProtectedAdmin component={EditOrganizationPage}/>
+      </Route>
 
-  // {/* PAGE TO LIST ALL THE ORGANIZATIONS IS MISSING */}
-  <Route
-    key="back-office/organization"
-    path="/back-office/organization"
-    exact
-    component={EditOrganizationPage}
-  />,
-  <Route
-    key="back-office/activity/:id"
-    path="/back-office/activity/:id"
-    component={EditActivityPage}
-  />,
-  <Route
-    key="back-office/activity"
-    path="/back-office/activity"
-    exact
-    component={ActivityBackOffice}
-  />,
+      {/* PAGE TO LIST ALL THE ORGANIZATIONS IS MISSING */}
+      <Route
+        path="/back-office/organization"
+        exact
+      >
+        <ProtectedAdmin component={EditOrganizationPage}/>
+      </Route>
 
-  // {/* IMPLEMENT BACK-OFFICE COMPONENT */}
-  <Route key="back-office" path="/back-office" exact component={HomePage} />,
-];
+      <Route
+        path="/back-office/activity/:id"
+      >
+        <ProtectedAdmin component={EditActivityPage}/>
+      </Route>
+
+      <Route
+        path="/back-office/activity"
+        exact
+      >
+        <ProtectedAdmin component={ActivityBackOffice}/>
+      </Route>
+
+      {/* IMPLEMENT BACK-OFFICE COMPONENT */}
+      <Route path="/back-office" exact >
+        <ProtectedAdmin component={HomePage}/>
+      </Route>
+    </>
+  );
+}
 
 export default BackOfficeRoutes;

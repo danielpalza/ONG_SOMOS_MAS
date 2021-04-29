@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import ErrorAlert from '../../../components/Alerts/ErrorAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
@@ -18,11 +18,6 @@ const RegisterForm = () => {
   const [message, setMessage] = useState();
   let redirect = null;
 
-  //Redirect to "/" when the request is ok
-  if (redirect) {
-    return <Redirect to={redirect} />;
-  }
-
   //handle the petition to requestLogin, and set message to what is return
   const handleRegister = user => {
     postData(user, redirect)
@@ -38,6 +33,18 @@ const RegisterForm = () => {
       })
       .catch(err => err);
   };
+
+  const history = useHistory();
+  useEffect(() => {
+    //Redirect to "/" when the request is ok
+    if (redirect) {
+      return <Redirect to={redirect} />;
+    }
+
+    if(localStorage.getItem('token')){
+      history.push('/');
+    }
+  }, []);
 
   return (
     <Formik
