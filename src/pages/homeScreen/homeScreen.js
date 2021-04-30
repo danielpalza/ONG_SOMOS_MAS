@@ -33,21 +33,25 @@ const HomeScreen = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="row d-flex justify-content-center align-items-center content-row">
-          <div className="title col-12 text-sm-left text-md-left text-lg-center">
-            <h1 className="display-3 text-justify text-truncate">
-              {welcomeText}
-            </h1>
-          </div>
-          <div className="sliderNews col-12">
-            <SliderNews news={news} />
-          </div>
-        </div>
-      </div>
-      <div className="container-fluid slider">
-        <Slider slides={sliderImg} width={'3000vw'} />
-      </div>
+      <main className="page landing-page">
+        <section className="clean-block clean-hero">
+          <Slider slides={sliderImg} />
+        </section>
+        <section className="clean-block clean-info dark">
+          <section class="clean-block clean-hero">
+            <div class="text">
+              <h2 className="display-1">welcome</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                quam urna, dignissim nec auctor in, mattis vitae leo.
+              </p>
+            </div>
+          </section>
+        </section>
+        <section className="clean-block clean-info dark">
+          <SliderNews news={news} />
+        </section>
+      </main>
     </>
   );
 };

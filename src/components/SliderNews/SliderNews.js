@@ -1,35 +1,37 @@
 import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './SliderNews.css';
 const SliderNews = ({ news }) => {
-  const $ = window.jQuery;
-
-  $(document).ready(() => {
-    $('.bxslider').bxSlider({
-      adaptiveHeight: true,
-      auto: true,
-      infiniteLoop: true,
-      controls: false,
-      autoControls: false,
-      mode: 'vertical',
-    });
-  });
-
   return (
     <>
-      <div className="bxslider">
-        {news.map((value, index) => {
-          return (
-            <div key={index}>
-              <h1 className="display-4 text-center">{value.title}</h1>
-              <div className="container">
-                <p className="text-center text-sm-left text-md-left justify-lg-left font-weight-light">
-                  {value.text}
-                </p>
+      <Carousel
+        autoPlay={true}
+        infiniteLoop={true}
+        interval={3000}
+        showThumbs={false}
+        showStatus={false}
+      >
+        {news.map((value, index) => (
+          <div key={index} className="container-fluid">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <img
+                  className="img-thumbnail"
+                  src={
+                    'https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png'
+                  }
+                  alt="img-new"
+                />
+              </div>
+              <div className="col-md-6">
+                <p className="display-3">{value.title}</p>
+                <div className="getting-started-info">{value.text}</div>
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        ))}
+      </Carousel>
     </>
   );
 };
