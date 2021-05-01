@@ -7,20 +7,39 @@ import { postData, registerSchema } from './utils';
 
 import './styles.css';
 
+
 const RegisterForm = () => {
+  const history = useHistory();
   const inicialValues = {
-    name: '',
-    surname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   };
   //State to the messages to show
   const [message, setMessage] = useState();
-  let redirect = null;
+  const [redirect, setRedirect] = useState(null);
 
+  useEffect(() => {
+    //Redirect to "/" when the request is ok
+    if (redirect) {
+      return <Redirect to={redirect} />;
+    }
+
+    if(localStorage.getItem('token')){
+      history.push('/');
+    }
+  }, []);
+ 
+
+  //Redirect to "/" when the request is ok
+  if (redirect) {
+    return <Redirect to={redirect} />;
+  }
+  
   //handle the petition to requestLogin, and set message to what is return
   const handleRegister = user => {
-    postData(user, redirect)
+    postData(user, setRedirect)
       .then(res => {
         if (res.error) {
           setMessage(
@@ -34,17 +53,8 @@ const RegisterForm = () => {
       .catch(err => err);
   };
 
-  const history = useHistory();
-  useEffect(() => {
-    //Redirect to "/" when the request is ok
-    if (redirect) {
-      return <Redirect to={redirect} />;
-    }
-
-    if(localStorage.getItem('token')){
-      history.push('/');
-    }
-  }, []);
+  
+  
 
   return (
     <Formik
@@ -56,21 +66,21 @@ const RegisterForm = () => {
         <p>{message}</p>
         <div className="d-flex flex-column spacing">
           <label className="text-left">Nombre:</label>
-          <Field className="form-control" name="name" type="text" />
+          <Field className="form-control" name="firstName" type="text" />
           <ErrorMessage
             className="alert alert-danger"
             component="label"
-            name="name"
+            name="firstName"
           />
         </div>
 
         <div className="d-flex flex-column spacing">
           <label className="text-left">Apellido:</label>
-          <Field className="form-control" name="surname" type="text" />
+          <Field className="form-control" name="lastName" type="text" />
           <ErrorMessage
             className="alert alert-danger"
             component="label"
-            name="surname"
+            name="lastName"
           />
         </div>
 
@@ -95,7 +105,7 @@ const RegisterForm = () => {
         </div>
 
         <button type="submit" className="btn btn-outline-primary">
-          Registrase !!
+          Registrase
         </button>
       </Form>
     </Formik>

@@ -1,5 +1,5 @@
 import { postHttpRequest, patchHttpRequest } from '../../helper/axios';
-import ErrorAlert from '../ErrorAlert';
+import ErrorAlert from '../Alerts/ErrorAlert';
 import * as Yup from 'yup';
 
 const FILE_SIZE = 10 * 1024 * 1024;

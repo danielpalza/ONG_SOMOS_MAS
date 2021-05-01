@@ -1,14 +1,14 @@
 import * as Yup from 'yup';
 import { postHttpRequest } from '../../../helper/axios';
 
-async function postData(values, redirect) {
+async function postData(values, setRedirect) {
   //Make axios request to the endpoint of login, if auth is correct, change "redirect" to "/" and make
   // a redirect, on other case, throw a alert message with swal
-  let indexUrl = `${process.env.REACT_APP_API_URL}`; // Change later with the real url of the server.
-  let res = await postHttpRequest(indexUrl + '/users/auth/register', values)
+
+  let res = await postHttpRequest('/auth/register', values)
     .then(res => {
       localStorage.setItem('user', res.data);
-      redirect = '/';
+      setRedirect('/');
     })
     .catch(error => {
       return { error: true, message: 'Ocurrio un error durante el registro.' };
@@ -17,8 +17,8 @@ async function postData(values, redirect) {
 }
 
 const registerSchema = Yup.object().shape({
-  name: Yup.string().required('No name was provided'),
-  surname: Yup.string().required('No surname was provided.'),
+  firstName: Yup.string().required('No name was provided'),
+  lastName: Yup.string().required('No surname was provided.'),
   email: Yup.string().email('Invalid email').required('No email was provided'),
   password: Yup.string()
     .required('No password was provided.')
