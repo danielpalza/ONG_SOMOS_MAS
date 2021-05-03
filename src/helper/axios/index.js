@@ -13,11 +13,6 @@ export const patchHttpRequest = (url, data) => {
     config.method = 'patch';
     return axios(config);
 };
-export const putHttpRequest = (url, data) => {
-    const config = createAxiosConfig(`${BASE_URL}${url}`, data);
-    config.method = 'put';
-    return axios(config);
-};
 
 export const putHttpRequest = (url, data) => {
     const config = createAxiosConfig(`${BASE_URL}${url}`, data);
