@@ -1,17 +1,16 @@
-import React from "react";
+import React from 'react';
 
 function CustomButton({ children, onClick }) {
   return (
-    <div className="row">
-      <div className="col-md-4 col-lg-3">
-        <button
-          type="submit"
-          className="btn btn-primary btn-block"
-          onClick={onClick}
-        >
-          {children}
-        </button>
-      </div>
+    <div>
+      <button
+        type="submit"
+        className="btn  btn-block"
+        onClick={onClick}
+        style={{ background: '#9ac9fb' }}
+      >
+        {children}
+      </button>
     </div>
   );
 }

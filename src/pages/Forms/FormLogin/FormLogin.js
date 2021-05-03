@@ -6,6 +6,8 @@ import { Redirect } from 'react-router-dom';
 import { getHttpRequest, postHttpRequest } from '../../../helper/axios';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../components/user/userSlice';
+import photoBg from '../../../assets/images/Foto-5.jpg';
+import './FormLogin.css';
 
 //Schema of validation of the values
 const validationSchema = Yup.object().shape({
@@ -63,89 +65,117 @@ function FormLogin() {
   };
 
   return (
-    <div
-      style={{ height: '100vh' }}
-      className="container-fluid d-inline-block justify-content-center align-items-center d-flex flex-column "
-    >
-      <p>{message}</p>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          // Disabled the submit button, and create a User object with the values.
-          setSubmitting(true);
-          handleLogin({ ...values }, setSubmitting);
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        }) => (
-          <form
-            onSubmit={handleSubmit}
-            className="rounded p-5 d-flex flex-column align-items-center form-group"
+    <main class="page contact-us-page">
+      <div className="row">
+        <div className="col-sm-12 col-lg-6">
+          <section
+            className="clean-block clean-hero bg"
+            style={{
+              backgroundImage: `url(${photoBg})`,
+              color: 'rgba(154,201,251, 0.85)',
+              height: '100vh',
+            }}
+          ></section>
+        </div>
+        <div className="col-sm-12 col-lg-6">
+          <section
+            style={{
+              paddingTop: '100px',
+            }}
+            class="clean-block clean-form"
           >
-            <h1>Login</h1>
-            <div className=" flex-column d-flex m-2 p-2">
-              <label>Email</label>
-              <input
-                type="text"
-                name="email"
-                value={values.email}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                placeholder="Ingrese su email"
-                className={
-                  touched.email && errors.email
-                    ? "border border-danger form-control"
-                    : touched.email? "border border-success form-control":"border form-control"
-                }
-              />
-              <ErrorMessage
-                component="div"
-                className="text-danger"
-                name="email"
-              />
-            </div>
-            <div className="flex-column d-flex m-2 p-2">
-              <label>Contraseña</label>
-              <input
-                type="password"
-                name="password"
-                value={values.password}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                placeholder="Ingrese su contraseña"
-                className={
-                  touched.password && errors.password
-                    ? "border border-danger form-control"
-                    : touched.password? "border border-success form-control":"border form-control"
-                }
-              />
-              <ErrorMessage
-                component="div"
-                className="text-danger"
-                name="password"
-              />
-            </div>
-            <div className="m-2 p-2">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={isSubmitting}
+            <div class="container">
+              <div class="block-heading">
+                <h2 class="text-info"> Login </h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                  quam urna
+                </p>
+              </div>
+              <Formik
+                initialValues={{ email: '', password: '' }}
+                validationSchema={validationSchema}
+                onSubmit={(values, { setSubmitting, resetForm }) => {
+                  // Disabled the submit button, and create a User object with the values.
+                  setSubmitting(true);
+                  handleLogin({ ...values }, setSubmitting);
+                }}
               >
-                Entrar
-              </button>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit,
+                  isSubmitting,
+                }) => (
+                  <form onSubmit={handleSubmit} className="text-left">
+                    <div className="form-group">
+                      <label for="email">Email:</label>
+                      <input
+                        type="text"
+                        name="email"
+                        value={values.email}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        placeholder="Insert your Email"
+                        className={
+                          touched.email && errors.email
+                            ? 'border border-danger form-control'
+                            : touched.email
+                            ? 'border border-success form-control'
+                            : 'border form-control'
+                        }
+                      />
+                      <ErrorMessage
+                        component="div"
+                        className="text-danger"
+                        name="email"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label for="password">Password:</label>
+                      <input
+                        type="password"
+                        name="password"
+                        value={values.password}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        placeholder="Insert password"
+                        className={
+                          touched.password && errors.password
+                            ? 'border border-danger form-control'
+                            : touched.password
+                            ? 'border border-success form-control'
+                            : 'border form-control'
+                        }
+                      />
+                      <ErrorMessage
+                        component="div"
+                        className="text-danger"
+                        name="password"
+                      />
+                    </div>
+
+                    <div className="form-group text-center">
+                      <button
+                        type="submit"
+                        className="btn"
+                        style={{ background: '#9ac9fb' }}
+                        disabled={isSubmitting}
+                      >
+                        Entrar
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
             </div>
-          </form>
-        )}
-      </Formik>
-    </div>
+          </section>
+        </div>
+      </div>
+    </main>
   );
 }
 

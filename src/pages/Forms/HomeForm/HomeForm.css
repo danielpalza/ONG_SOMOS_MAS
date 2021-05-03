@@ -10,10 +10,6 @@
     box-shadow: 5px 12px 34px -9px rgba(0, 0, 0, 0.63);
 }
 
-form label {
-    font-size: 25px;
-}
-
 #firstImage,
 #secondImage,
 #thirdImage {

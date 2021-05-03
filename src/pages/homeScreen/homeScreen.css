@@ -1,27 +1,16 @@
-.content-row {
-    height: 70vh;
+.welcome-text {
+    color: black !important;
 }
 
-.slider {
-    height: 100%;
+.clean-block.clean-info {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    .sliderNews {
-        margin-top: 160px !important;
-    }
-    .title {
-        padding-top: 120px;
-    }
-    .slider {
-        margin-top: 160px;
-        height: 100%;
-    }
-}
-
-@media (max-width: 410px) {
-    .slider {
-        margin-top: 420px;
-        height: 100%;
+@media (max-width: 440px) {
+    .slider-news {
+        margin-bottom: 20px;
     }
 }

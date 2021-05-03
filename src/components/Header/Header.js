@@ -17,48 +17,39 @@ const Header = () => {
   }, []);
 
   const { image } = state;
-  
+
   return (
-    <>
-      <nav
-        className="navbar navbar-expand-lg navbar-light bg-primary"
-       
-      >
-        <div className="container-fluid">
-          {image ? (
-            <img className="logo-image" src={image} alt="logo" />
-          ) : (
-            <Loader />
-          )}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapse_target"
-            aria-expanded="false"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div
-            style={{ paddingRight: '50px' }}
-            className="collapse  navbar-collapse justify-content-end"
-            id="collapse_target"
-          >
-            <ul className="navbar-nav">
-              {links.map(({ route, text }, index) => {
-                return (
-                  <li className="nav-item" key={index}>
-                    <Link to={route} className="nav-link text-uppercase">
-                      {text}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+    <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar shadow header">
+      <div className="container header-container">
+        {image ? (
+          <img className="logo-image" src={image} alt="logo" />
+        ) : (
+          <Loader />
+        )}
+
+        <button
+          data-toggle="collapse"
+          className="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span className="sr-only">Toggle navigation</span>
+          <span className="navbar-toggler-icon"> </span>
+        </button>
+        <div className="collapse navbar-collapse" id="navcol-1">
+          <ul className="navbar-nav ml-auto">
+            {links.map(({ route, text }, index) => {
+              return (
+                <li className="nav-item" key={index}>
+                  <Link to={route} className="nav-link links">
+                    {text}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 

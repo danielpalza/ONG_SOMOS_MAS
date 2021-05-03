@@ -4,10 +4,9 @@ import Header from '../../components/Header/Header';
 const MainLayout = ({ children }) => (
   <main>
     <Header />
-    <section>{children}</section>
+    <section style={{ marginTop: '5%' }}>{children}</section>
     <Footer />
   </main>
 );
-
 
 export default MainLayout;

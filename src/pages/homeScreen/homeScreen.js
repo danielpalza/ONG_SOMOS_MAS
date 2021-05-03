@@ -3,6 +3,7 @@ import SliderNews from '../../components/SliderNews/SliderNews';
 import Slider from '../../components/slider/Slider';
 import { getHttpRequest } from '../../helper/axios/index';
 import { news } from '../../utils/homeContent';
+import photoBg from '../../assets/images/Foto-6.jpg';
 import './homeScreen.css';
 const HomeScreen = () => {
   const [state, setState] = useState({});
@@ -25,6 +26,7 @@ const HomeScreen = () => {
       label: 'lorem ipsum3',
     },
   ];
+
   useEffect(() => {
     getHttpRequest(`${process.env.REACT_APP_API_URL}/organizations/1/public`)
       .then(res => setState(res.data))
@@ -34,21 +36,22 @@ const HomeScreen = () => {
   return (
     <>
       <main className="page landing-page">
-        <section className="clean-block clean-hero">
+        <section className="clean-block clean-info dark">
           <Slider slides={sliderImg} />
         </section>
-        <section className="clean-block clean-info dark">
-          <section class="clean-block clean-hero">
-            <div class="text">
-              <h2 className="display-1">welcome</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                quam urna, dignissim nec auctor in, mattis vitae leo.
-              </p>
-            </div>
-          </section>
+        <section
+          className="clean-block clean-hero"
+          style={{
+            backgroundImage: `url(${photoBg})`,
+            color: 'rgba(250, 250, 136, 0.85)',
+          }}
+        >
+          <div className="text">
+            <h1 className="welcome-text">Welcome!</h1>
+            <p className="text-justify welcome-text">{welcomeText}</p>
+          </div>
         </section>
-        <section className="clean-block clean-info dark">
+        <section className="clean-block clean-info dark slider-news">
           <SliderNews news={news} />
         </section>
       </main>

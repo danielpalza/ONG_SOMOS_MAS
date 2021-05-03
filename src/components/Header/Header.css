@@ -1,11 +1,16 @@
-nav>div {
-    font-size: 1.6em;
-    min-height: 50px;
+.header-container {
     padding: 1rem 4rem;
 }
 
+.links {
+    font-family: Montserrat, sans-serif !important;
+    text-transform: uppercase !important;
+}
+
 .logo-image {
-    width: 4vw;
+    width: 7%;
+    border-radius: 50%;
+    border: 1px solid #9ac9fb;
 }
 
 @media (max-width: 600px) {

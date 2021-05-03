@@ -1,5 +1,11 @@
-.container {
-    max-width: 600px !important;
+.content {
+    max-width: 600px;
+}
+
+@media (max-width: 450px) {
+    .form {
+        margin-top: 17%;
+    }
 }
 
 .alert {

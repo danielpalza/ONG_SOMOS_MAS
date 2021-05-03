@@ -1,0 +1,9 @@
+.bg {
+    height: 100vh;
+}
+
+@media (max-width: 450px) {
+    .bg {
+        display: none !important;
+    }
+}

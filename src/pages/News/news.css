@@ -1,31 +1,5 @@
-.cards{
-    margin: 0px auto !important;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
-}
-
-.card{
-    width: 30%;
-    margin: 20px;
-    border: 1px solid #ccc;
-    margin-right: 0px;
-    box-shadow: 0px 0px 10px #444;
-}
-
-@media (max-width: 599px){
-    .card{
-        width: 90%;      
-    }
-}
-
-@media (max-width: 415px){
-    .cards{
-        flex-direction: column;      
-    }
-
-    .card{
-        width: 90%;      
+@media (max-width: 450px) {
+    .news-content {
+        margin-top: 15%;
     }
 }

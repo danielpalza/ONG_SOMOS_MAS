@@ -1,3 +1,13 @@
-.shadow{
+.shadow {
     box-shadow: 3px 2px 5px gray;
+}
+
+.btn-blue {
+    background: #9ac9fb;
+}
+
+@media (max-width: 450px) {
+    .detail-content {
+        margin-top: 17%;
+    }
 }

@@ -33,47 +33,66 @@ function Index() {
   }
 
   return (
-    <Fragment>
-      <p> {message} </p>
-      {detailNew !== undefined ? (
-        <main className="rounded shadow container-fluid p-2 d-flex flex-column w-50 align-items-center">
-          <div className="text-left w-100 m-2 rounded ">
-            <div className="d-flex justify-content-between align-items-center rounded text-white bg-dark p-2">
-              <h6> {detailNew.entry.type} </h6>
-              <button
-                onClick={() => setRedirect(true)}
-                type="button"
-                className="btn btn-outline-secondary"
-              >
-                Regresar
-              </button>
-            </div>
-            <h1 className="p-2 "> {detailNew.entry.name} </h1>
-          </div>
-          <div className="m-2">
-            <img src={detailNew.entry.image} className="img-fluid" alt="img" />
-          </div>
-          <div className="m-2">
-            <h5> {detailNew.entry.content} </h5>
-          </div>
-        </main>
-      ) : (
-        <main className="rounded shadow container-fluid p-2 d-flex flex-column w-50 align-items-center">
-          <div className="text-left w-100 m-2 rounded ">
-            <div className="d-flex justify-content-between align-items-center rounded text-white bg-dark p-2">
-              <h6> Sin noticia </h6>
-              <button
-                onClick={() => setRedirect('/')}
-                type="button"
-                className="btn btn-outline-secondary"
-              >
-                Regresar
-              </button>
-            </div>
-          </div>
-        </main>
-      )}
-    </Fragment>
+    <main className="page">
+      <section className="clean-block clean-info">
+        <p> {message} </p>
+        {detailNew !== undefined ? (
+          <main className="page detail-content">
+            <section class="clean-block clean-info">
+              <div class="container">
+                <div class="block-heading">
+                  <h2 class="text-info">{detailNew.entry.name}</h2>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-md-6">
+                    <img
+                      class="img-thumbnail"
+                      src={detailNew.entry.image}
+                      alt="news-img"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <div class="getting-started-info">
+                      <p>{detailNew.entry.content}</p>
+                    </div>
+                    <button
+                      onClick={() => setRedirect(true)}
+                      type="button"
+                      className="btn btn-blue"
+                    >
+                      Regresar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        ) : (
+          <main className="page">
+            <section class="clean-block clean-info">
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-md-12">
+                    <p className="display-2 text-center text-info">
+                      No News Available
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <button
+                      onClick={() => setRedirect(true)}
+                      type="button"
+                      className="btn btn-blue"
+                    >
+                      Regresar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        )}
+      </section>
+    </main>
   );
 }
 

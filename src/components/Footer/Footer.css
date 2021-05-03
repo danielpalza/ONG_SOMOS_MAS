@@ -1,0 +1,19 @@
+.bg-red {
+    background: #db5752;
+}
+
+.bg-copyright {
+    background: #c25f5b !important;
+    border: #c25f5b !important;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.content-footer {
+    font-family: Montserrat, sans-serif !important;
+    text-transform: uppercase !important;
+    font-weight: lighter;
+}

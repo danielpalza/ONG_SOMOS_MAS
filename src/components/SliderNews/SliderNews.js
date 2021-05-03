@@ -15,7 +15,7 @@ const SliderNews = ({ news }) => {
         {news.map((value, index) => (
           <div key={index} className="container-fluid">
             <div className="row align-items-center">
-              <div className="col-md-6">
+              <div className="col-md-5">
                 <img
                   className="img-thumbnail"
                   src={
@@ -24,9 +24,11 @@ const SliderNews = ({ news }) => {
                   alt="img-new"
                 />
               </div>
-              <div className="col-md-6">
-                <p className="display-3">{value.title}</p>
-                <div className="getting-started-info">{value.text}</div>
+              <div className="col-md-7 px-5 text">
+                <p className="display-3 text-info">{value.title}</p>
+                <div className="getting-started-info text-justify">
+                  {value.text}
+                </div>
               </div>
             </div>
           </div>
