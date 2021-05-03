@@ -29,35 +29,40 @@ function BackofficeActivities() {
   return (
     <>
 
-      {fetchState.loading ? <Loader /> : (<> < div className="container-fluid " >
-        <p style={{ marginBottom: '130px' }} className="display-4"></p>
-        <div className="card shadow card-responsive" >
-          <div className="card-header py-3">
-            <p className="text-primary m-0 font-weight-bold  text-left">Informacion de Actividades</p>
-          </div>
-          <div className="card-body">
-            <div className="table-responsive table-backoffice table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info" style={{ overflow: 'hidden' }}>
-              <table className="table my-0" id="dataTable">
-                <thead>
-                  <tr>
-                    <th> Nombre </th>
-                    <th style={{ textAlign: 'center' }}> Acciones </th>
+      <>
+
+        {fetchState.loading ? <Loader /> : (<> {/* < div className="container-fluid " > */}
+          {/*   <p style={{ marginBottom: '130px' }} className="display-4"></p> */}
+          {/*  <div className="card shadow card-responsive" >
+    <div className="card-header py-3">
+      <p className="text-primary m-0 font-weight-bold  text-left">Informacion de Actividades</p>
+    </div>
+    <div className="card-body"> */}
+          <div className=" table-backoffice " id="dataTable" role="grid" aria-describedby="dataTable_info" style={{ overflow: 'hidden' }}>
+
+            <table className="table my-0" id="dataTable">
+              <thead>
+                <tr>
+                  <th> ID </th>
+                  <th> Nombre </th>
+                  <th style={{ textAlign: 'center' }}> Acciones </th>
+                </tr>
+              </thead>
+              <tbody>
+                {activities?.map(activity => (
+                  <tr key={activity.id}>
+                    <Activity activity={activity} />
                   </tr>
-                </thead>
-                <tbody>
-                  {activities?.map(activity => (
-                    <tr key={activity.id}>
-                      <Activity activity={activity} />
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
-        </div>
-        {(fetchState.success && fetchState.message) && <SucessAlert text={fetchState.message} title="Operacion realizada" />}
-      </div > </>)
-      }
+          {/* </div> */}
+          {/* </div> */}
+          {(fetchState.success && fetchState.message) && <SucessAlert text={fetchState.message} title="Operacion realizada" />}
+          {/*  </div > */} </>)
+        }
+      </>
     </>
 
   );

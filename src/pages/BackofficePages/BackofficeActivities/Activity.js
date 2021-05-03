@@ -29,20 +29,32 @@ function Activity({ activity }) {
   }
   return (
     <React.Fragment key={activity.id}>
+      <td style={{ verticalAlign: 'inherit' }}> {activity.id} </td>
       <td style={{ verticalAlign: 'inherit' }}> {activity.name} </td>
-      <td className="text-left" style={{ textAlign: 'center' }}>
-        <div className="row">
-          <div className="col-sm-12 col-md-6 col-lg-6">
-            <button className="btn btn-primary btn-block" onClick={handleEdit}>
-              Editar
-                  </button>
-          </div>
-          <div className="delete col-sm-12 col-md-6 col-lg-6 ">
-            <button className="btn btn-danger btn-block" onClick={handleDelete} >
-              Borrar
+
+      <td className="text-center"/*  style={{ textAlign: 'center' }} */>
+        {/*  <div className="row">
+        <div className=" col-sm-2 col-md-6 col-lg-6">
+          <button className="btn btn-primary text-white ml-1" onClick={handleEdit}>
+            Editar
                 </button>
-          </div>
         </div>
+        <div className=" col-sm-2 col-md-6 col-lg-6 ">
+          <button className="btn btn-danger text-white ml-1 " onClick={handleDelete} >
+            Borrar
+              </button>
+
+              
+        </div>
+      </div> */}
+
+
+        <button className="btn btn-primary text-white ml-1 w-auto" onClick={handleEdit}>
+          Editar
+                </button>
+        <button className="btn btn-danger text-white ml-1 w-auto " onClick={handleDelete} >
+          Borrar
+              </button>
       </td>
     </React.Fragment >
   );

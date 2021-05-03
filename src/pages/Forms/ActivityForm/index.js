@@ -76,9 +76,9 @@ function ActivityForm(props) {
 
   return (
     <>
-      {fetchState.loading ? <Loader /> : (<div className="container-fluid activity-edit"><div class="row">
+      {fetchState.loading ? <Loader /> : (<div class="row">
         <div className="col">
-          <div className="card shadow mb-3 card-responsive-edit ">
+          <div className="card shadow mb-3  ">
             <div className="card-header py-3">
               <p className="text-primary m-0 font-weight-bold">Edicion de actividad</p>
             </div>
@@ -138,7 +138,7 @@ function ActivityForm(props) {
             </div>
           </div>
         </div>
-      </div> </div>)
+      </div>)
       }
     </>
   );
