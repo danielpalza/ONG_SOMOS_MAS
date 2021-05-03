@@ -1,0 +1,25 @@
+.navItemSidebar {
+  text-align: left;
+}
+
+.navLinkSidebar {
+  font-weight: 400;
+  font-size: 1rem;
+  color: rgb(99, 115, 129);
+}
+.navLinkSidebar:hover {
+  background: rgba(145, 158, 171, 0.08);
+  color: rgb(99, 115, 129);
+}
+
+.selected {
+  background: #fcefee !important;
+  color: #db5752 !important;
+  border-right: 3px solid #db5752;
+}
+
+@media (max-width: 576px) {
+  .navItemSidebar {
+    text-align: center;
+  }
+}
