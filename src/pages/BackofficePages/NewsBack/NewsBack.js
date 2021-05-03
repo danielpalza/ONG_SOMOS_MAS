@@ -1,117 +1,113 @@
-import React from 'react';
-import axios from 'axios';
-import { Table, Button, Container } from 'reactstrap';
-
+import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { getHttpRequest, deleteHttpRequest } from '../../../helper/axios/index';
+import './NewsBack.css';
+import { useSelector } from 'react-redux';
 //@route /backoffice/news
+moment.locale('es');
 
-const initalState = [
-  {
-    id: 1,
-    title: 'Title 1',
-    image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
-    createdAt: 'CreationDate',
-  },
-  {
-    id: 2,
-    title: 'Title 2',
-    image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
-    createdAt: 'CreationDate',
-  },
-  {
-    id: 3,
-    title: 'Title 3',
-    image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
-    createdAt: 'CreationDate',
-  },
-  {
-    id: 4,
-    title: 'Title 4',
-    image: 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
-    createdAt: 'CreationDate',
-  },
-];
+const NewsBack = () => {
+  const [admin, setAdmin] = useState(false);
+  const [news, setNews] = useState([]);
 
-class NewsBack extends React.Component {
-  state = {
-    id: '',
-    title: '',
-    image: '',
-    createdAt: '',
-    data: initalState,
-  };
-  // function to delete new from server
-  deleteNew = newId => {
-    axios
-      .delete(`news/${newId}`)
+  const user = useSelector(state => state.user);
+
+  useEffect(() => {
+    if (user.user.user.roleId === 2) {
+      setAdmin(false);
+    } else {
+      setAdmin(true);
+    }
+    getHttpRequest('/news')
       .then(res => {
-        let newData = [...this.state.data];
-        newData.splice(newId, 1);
-        this.setState({
-          id: newData.length + 1,
-          title: '',
-          image: '',
-          createdAt: '',
-          data: newData,
-        });
+        setNews(res.data);
       })
       .catch(err => console.log(err));
-  };
-  // function to import news from the server
-  getNews() {
-    axios
-      .get('news/')
-      .then(res => {
-        let newData = res.data;
-        this.setState({
-          id: newData[newData.length - 1].id + 1,
-          data: newData,
-        });
-      })
-      .catch(err => console.log("Couldn't fetch data. Error: " + err));
-  }
+  }, []);
 
-  handleEdit = urlId => {
-    this.props.history.push(this.props.location.pathname + `/${urlId}`);
+  const deleteNew = newId => {
+    Swal.fire({
+      title: '¿Estas seguro de eliminar?',
+      text: 'No podra volver atras!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!',
+    }).then(result => {
+      if (result.value) {
+        deleteHttpRequest(`/news/${newId}`)
+          .then(res => {
+            const v = news.filter(e => e.id !== newId);
+            setNews(v);
+            Swal.fire('Eliminado!', 'Ha sido borrado exitosamente.', 'success');
+          })
+          .catch(err =>
+            Swal.fire({
+              icon: 'error',
+              title: 'Hubo un error',
+              text: 'Intentelo de nuevo!',
+            })
+          );
+      }
+    });
   };
 
-  render() {
-    return (
-      <div>
-        <Container className="text-left">
-          <Table>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Created at</th>
-                <th>Actions</th>
+  return (
+    <>
+      <div className="table-responsive">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Titulo</th>
+              <th>Imagen</th>
+              <th>Creado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {news.map(news => (
+              <tr key={news.id}>
+                <td data-label="ID">{news.id}</td>
+                <td data-label="Titulo">{news.name}</td>
+                <td data-label="Imagen">
+                  <img src={news.image} alt={news.image} />
+                </td>
+                <td data-label="Creado">
+                  {moment(news.createdAt).format('L')}
+                </td>
+                <td data-label="Acciones">
+                  <div className="">
+                    <Link
+                      to={`/back-office/news/${news.id}`}
+                      className="btn btn-primary btn-block"
+                    >
+                      Editar
+                    </Link>
+                    <button
+                      onClick={() => deleteNew(news.id)}
+                      className="btn btn-secondary btn-block"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {this.state.data.map(element => (
-                <tr>
-                  <td>{element.id}</td>
-                  <td>{element.title}</td>
-                  <td>{element.image}</td>
-                  <td>{element.createdAt}</td>
-                  <td>
-                    <button onClick={this.handleEdit} className="btn btn-primary" >
-                      Edit
-                    </button>
-
-                    <button onClick={this.deleteNew(element.id)} className="btn btn-secondary">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Container>
+            ))}
+          </tbody>
+        </table>
       </div>
-    );
-  }
-}
+      {admin && (
+        <Link className="btn  btn-primary " to={`/back-office/news/0`}>
+          Crear noticia
+        </Link>
+      )}
+    </>
+  );
+};
 
 export default NewsBack;
