@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
 
 //Make a request to update o create a testimonial, if edit is true, or false
 //If everything is ok, go to "/", if not, throw a ErrorAlert and enable the submit button
-const handleRequest = async ( edit, setMsg, test, setSubmitting, history) => {
+const handleRequest = async (edit, setMsg, test, setSubmitting, history) => {
   
   if (edit) {
     await putHttpRequest(`/testimonials/${edit.id}`,  {...test, name:test.nam})

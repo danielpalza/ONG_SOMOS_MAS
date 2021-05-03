@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import Editor from '@ckeditor/ckeditor5-build-classic';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   failFetch,

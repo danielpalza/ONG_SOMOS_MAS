@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import Editor from '@ckeditor/ckeditor5-build-classic';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validation } from './utils';
 import { useHistory, useParams } from 'react-router';
@@ -57,7 +57,7 @@ function NewsForm(props) {
     await putHttpRequest(`/news/${news.id}`, data);
     history.push('/back-office/news');
   };
- 
+
   const inicialValues = {
     name: news.name || '',
     image: news.image || '',

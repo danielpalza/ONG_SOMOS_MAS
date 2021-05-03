@@ -79,22 +79,6 @@ const FormTestimonial = () => {
               <CKEditor
                 editor={Editor}
                 data={values.content}
-                config={{
-                  toolbar: {
-                    items: [
-                      'bold',
-                      'imageUpload',
-                      'italic',
-                      'undo',
-                      'redo',
-                      'insertTable',
-                      'bulletedlist',
-                      'numberedList',
-                    ],
-                    shouldNotGroupWhenFull: true,
-                  },
-                  Plugin: ['Base64UploadAdapter', 'BlockToolbar'],
-                }}
                 name="content"
                 onChange={(e, editor) => {
                   values.content = editor.getData();
@@ -135,7 +119,7 @@ const FormTestimonial = () => {
               />
             </div>
 
-            <div className="m-2 p-2 d-flex flex-column align-items-center">
+            <div className="m-2 p-2">
               <button
                 onClick={e => history.push('/')}
                 className="btn m-2 btn-secondary"
