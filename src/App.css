@@ -70,3 +70,8 @@
     }
   
   }
+/*Ckeditor*/
+  .ck-editor__editable {
+    font-family: 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    min-height: 20vh;
+  }

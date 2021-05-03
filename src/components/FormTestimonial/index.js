@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import Editor from '@ckeditor/ckeditor5-build-classic';
+import editorConfiguration from './editConfiguration';
 import { useHistory, useParams } from 'react-router';
 import { validationSchema, handleRequest } from './utils';
 import { useSelector } from 'react-redux';
@@ -77,8 +78,9 @@ const FormTestimonial = () => {
               <label>Contenido</label>
 
               <CKEditor
-                editor={Editor}
                 data={values.content}
+                config={editorConfiguration}
+                editor={Editor}
                 name="content"
                 onChange={(e, editor) => {
                   values.content = editor.getData();
@@ -119,7 +121,7 @@ const FormTestimonial = () => {
               />
             </div>
 
-            <div className="m-2 p-2">
+            <div className="m-2 p-2 d-flex flex-column align-items-center">
               <button
                 onClick={e => history.push('/')}
                 className="btn m-2 btn-secondary"
