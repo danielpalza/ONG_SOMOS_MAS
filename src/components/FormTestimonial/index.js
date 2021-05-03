@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useHistory } from 'react-router';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import { useHistory, useParams } from 'react-router';
 import { validationSchema, handleRequest } from './utils';
 import { useSelector } from 'react-redux';
 import { selectTestimonials } from '../edit/testimonials/testimonialsSlice';
 
 const FormTestimonial = () => {
-  const testimonial = useSelector(selectTestimonials);
+  //const testimonial = useSelector(selectTestimonials);
+  const isEdit = useParams("id");
   const [test, setTest] = useState({ nam: '', image: null, content: '' });
   const [msg, setMsg] = useState();
   const history = useHistory();
+  const [edit, setEdit] = useState(false);
 
   const handleSubmit = (vals, setSubmitting) => {
-    handleRequest(testimonial, setMsg, vals, setSubmitting, history);
+    handleRequest(edit, setMsg, vals, setSubmitting, history);
   };
 
   useEffect(() => {
-    if (testimonial) {
-      const { nam, image, content } = testimonial;
-      setTest({ nam, image, content });
+    if (isEdit/*testimonial*/) {
+      //const { nam, image, content } = testimonial;
+      //setTest({ nam, image, content });
+      setEdit(true);
     }
+    console.log(edit)
   }, []);
 
   return (
@@ -34,6 +38,7 @@ const FormTestimonial = () => {
         onSubmit={(values, { setSubmitting, resetForm }) => {
           //Disabled the submit button, and create a User object with the values.
           setSubmitting(true);
+          console.log(values)
           handleSubmit({ ...values }, setSubmitting);
         }}
       >
@@ -72,7 +77,7 @@ const FormTestimonial = () => {
               <label>Contenido</label>
 
               <CKEditor
-                editor={ClassicEditor}
+                editor={Editor}
                 data={values.content}
                 name="content"
                 onChange={(e, editor) => {

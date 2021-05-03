@@ -1,4 +1,4 @@
-import { postHttpRequest, patchHttpRequest } from '../../helper/axios';
+import { postHttpRequest, putHttpRequest } from '../../helper/axios';
 import ErrorAlert from '../Alerts/ErrorAlert';
 import * as Yup from 'yup';
 
@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape({
 const handleRequest = async (edit, setMsg, test, setSubmitting, history) => {
   
   if (edit) {
-    await patchHttpRequest(`/testimonials/${edit.id}`,  {...test, name:test.nam})
+    await putHttpRequest(`/testimonials/${edit.id}`,  {...test, name:test.nam})
       .then(res => {
         if (res.error) {
           setMsg(

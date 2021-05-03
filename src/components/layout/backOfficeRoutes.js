@@ -14,6 +14,7 @@ import CategoriesAbm from '../../pages/backoffice/Categories/ABMCategories';
 import { Route } from 'react-router-dom';
 import ProtectedAdmin from '../ProtectedRoutes/ProtectedAdmin';
 import BackOfficeLayout from '../../layout/BackOfficeLayout/BackOfficeLayout';
+import FormTestimonial from '../FormTestimonial';
 
 function BackOfficeRoutes() {
   return (
@@ -21,6 +22,12 @@ function BackOfficeRoutes() {
       <Route path="/back-office/testimonials" exact>
         <BackOfficeLayout>
           <ProtectedAdmin component={TestimonialPage} />
+        </BackOfficeLayout>
+      </Route>
+
+      <Route path="/back-office/testimonials/:id" exact>
+        <BackOfficeLayout>
+          <ProtectedAdmin component={FormTestimonial} />
         </BackOfficeLayout>
       </Route>
 
