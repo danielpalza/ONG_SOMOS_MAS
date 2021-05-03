@@ -1,0 +1,43 @@
+/* #DB5752 */
+/* #FAFA88 */
+/* #9AC9FB */
+.form{
+    color: #9AC9FB;
+    max-width: 800px;
+    background-color: white;
+    min-width: 320px;
+    margin: 20px auto;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid gray;
+}
+
+.form h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.container_button_create_category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px;
+    min-width: 150px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.button_create_category{
+    width: 100%;
+    line-height: 2em;
+    background-color: #DB5752;
+    border: none;
+    color: #9AC9FB;
+    margin: 16px 0;
+    font-size:15px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+.button_create_category:hover{
+    background-color: #DB5752;
+}

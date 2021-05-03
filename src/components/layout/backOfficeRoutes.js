@@ -8,7 +8,7 @@ import EditOrganizationPage from '../../pages/Forms/EditOrganization/EditOrganiz
 import NewsBackOfficePage from '../../pages/BackofficePages/NewsBack/NewsBack';
 import NewsBackOfficeEditPage from '../../pages/Forms/NewsForm/NewsForm';
 import TestimonialPage from '../../pages/BackofficePages/TestimonialBack/testimonials';
-
+import CategoriesAbm from '../../pages/backoffice/Categories/ABMCategories';
 /* Modulos */
 
 import { Route } from 'react-router-dom';
@@ -61,6 +61,12 @@ function BackOfficeRoutes() {
         </BackOfficeLayout>
       </Route>
 
+      <Route
+        path="/back-office/categories"
+        exact
+      >
+        <ProtectedAdmin component={CategoriesAbm}/>
+      </Route>
       {/* IMPLEMENT BACK-OFFICE COMPONENT */}
       <Route path="/back-office" exact>
         <BackOfficeLayout>

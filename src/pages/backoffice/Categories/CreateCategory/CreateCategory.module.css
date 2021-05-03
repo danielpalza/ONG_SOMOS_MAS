@@ -1,0 +1,115 @@
+.container_create_category{
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.container_create_category form{
+    background-color: #fff;
+    padding: 30px 10px 15px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.container_create_category form h4{
+    font-size: 18px;
+    font-weight: 500;
+    color: #232323;
+}
+.container_input_textarea{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px 10px;
+    margin-bottom: 30px;
+    
+}
+.container_input_textarea input{
+    width: 100%;
+    padding: 9px 10px;
+    background-color: transparent;
+    outline: none;
+    border-bottom: 1px solid #282C34;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #232323;
+    font-size: 14px;
+    z-index: 1;
+}
+.container_input_textarea input:focus::placeholder{
+    color: transparent;
+}
+.container_input_textarea input:focus,
+.container_input_textarea input:valid {
+    border-bottom: 1px solid #9AC9FB
+}
+.container_input_textarea input:focus ~ label,
+.container_input_textarea input:valid ~ label {
+    top: -30px;
+    color: #9AC9FB;
+}
+.container_input_textarea textarea:focus::placeholder{
+    color: transparent;
+}
+.container_input_textarea textarea:focus,
+.container_input_textarea textarea:valid {
+    border-bottom: 1px solid #9AC9FB
+}
+.container_input_textarea textarea:focus ~ label,
+.container_input_textarea textarea:valid ~ label {
+    top: -30px;
+    color: #9AC9FB;
+}
+.container_input_textarea textarea{
+    resize: none;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #282C34;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 9px 10px;
+    outline: none;
+    font-size: 14px;
+    z-index: 1;
+}
+.container_input_textarea label{
+    position: absolute;
+    z-index: 0;
+    color: #232323;
+    font-size: 13px;
+    left: 20px;
+    top: -5px;
+    color: transparent;
+    transition: all .5s linear;
+}
+.container_button_create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.container_button_create input{
+    width: 60%;
+    line-height: 2em;
+    background-color: #9AC9FB;
+    border: none;
+    color: #DFE6E9;
+    margin-bottom: 10px;
+    font-size:14px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+.container_button_create input:hover{
+    background-color: #266db9;
+}
+
+    
