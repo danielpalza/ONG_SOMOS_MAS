@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function EmailInput({ onChange, value }) {
   return (
@@ -12,7 +12,7 @@ function EmailInput({ onChange, value }) {
         value={value}
         className="form-control"
         id="exampleFormControlInput2"
-        placeholder="name@example.com"
+        placeholder="nombre@ejemplo.com"
       />
     </div>
   );

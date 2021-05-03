@@ -3,7 +3,7 @@ import CustomTextArea from '../../../components/CustomTextArea/CustomTextArea';
 import EmailInput from '../../../components/EmailInput/EmailInput';
 import TextInput from '../../../components/TextInput/TextInput';
 import CustomButton from '../../../components/CustomButton/CustomButton';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import photoBg from '../../../assets/images/Foto-7.jpg';
 import './Contact.css';
@@ -17,7 +17,7 @@ function Contact() {
 
   const submitted = {};
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (name.length === 0 || email.length === 0 || message.length === 0) {
@@ -66,7 +66,7 @@ function Contact() {
               }}
             >
               <div className="text">
-                <h1 className="display-2 welcome-text">Contact Us</h1>
+                <h1 className="display-2 welcome-text">Contacto</h1>
                 <p className="text-justify welcome-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
                   molestiae unde reprehenderit maiores natus alias, blanditiis
@@ -83,23 +83,23 @@ function Contact() {
               }}
               className="clean-block clean-form"
             >
-              <h2 className="text-info">Contact Us Here!</h2>
+              <h2 className="text-info">Contactanos</h2>
               <form className="d-flex flex-column mt-5">
                 <TextInput
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                   value={name}
-                  label="Username"
-                  placeholder="Name"
+                  label="Nombre de usuario"
+                  placeholder="Nombre"
                 />
                 <EmailInput
                   value={email}
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <CustomTextArea
                   value={message}
-                  label="Message"
-                  placeholder="Enter your message..."
-                  onChange={e => setMessage(e.target.value)}
+                  label="Mensaje"
+                  placeholder="Escriba su mensaje..."
+                  onChange={(e) => setMessage(e.target.value)}
                 />
                 {error && (
                   <div className="alert alert-danger" role="alert">

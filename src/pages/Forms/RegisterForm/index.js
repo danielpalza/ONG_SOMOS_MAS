@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import ErrorAlert from '../../../components/Alerts/ErrorAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { postData, registerSchema } from './utils';
 
@@ -37,9 +37,9 @@ const RegisterForm = () => {
   }
 
   //handle the petition to requestLogin, and set message to what is return
-  const handleRegister = user => {
+  const handleRegister = (user) => {
     postData(user, setRedirect)
-      .then(res => {
+      .then((res) => {
         if (res.error) {
           setMessage(
             ErrorAlert({
@@ -49,9 +49,9 @@ const RegisterForm = () => {
           );
         }
       })
-      .catch(err => err);
+      .catch((err) => err);
   };
-  
+
   return (
     <>
       <Helmet>
@@ -62,18 +62,18 @@ const RegisterForm = () => {
         <section class="clean-block clean-form dark">
           <div class="container form">
             <div class="block-heading">
-              <h2 class="text-info"> Sign Up Here </h2>
+              <h2 class="text-info"> Registrate Aquí </h2>
             </div>
             <Formik
               initialValues={inicialValues}
-              onSubmit={values => handleRegister(values)}
+              onSubmit={(values) => handleRegister(values)}
               validationSchema={registerSchema}
             >
               <Form className="content d-flex flex-column">
                 <p> {message} </p>
                 <div className="d-flex flex-column spacing">
-                  <label className="text-left"> Name: </label>
-                  <Field className="form-control" name="firstName" type="text" />
+                  <label className="text-left"> Nombre: </label>
+                  <Field className="form-control" name="name" type="text" />
                   <ErrorMessage
                     className="alert alert-danger"
                     component="label"
@@ -81,8 +81,8 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="d-flex flex-column spacing">
-                  <label className="text-left"> Lastname: </label>
-                  <Field className="form-control" name="lastName" type="text" />
+                  <label className="text-left"> Apellido: </label>
+                  <Field className="form-control" name="surname" type="text" />
                   <ErrorMessage
                     className="alert alert-danger"
                     component="label"
@@ -99,7 +99,7 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="d-flex flex-column spacing">
-                  <label className="text-left"> Password: </label>
+                  <label className="text-left"> Contraseña: </label>
                   <Field
                     className="form-control"
                     name="password"
@@ -116,7 +116,7 @@ const RegisterForm = () => {
                   type="submit"
                   className="btn "
                 >
-                  Sign up
+                  Registrar
                 </button>
               </Form>
             </Formik>

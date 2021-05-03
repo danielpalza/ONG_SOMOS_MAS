@@ -3,7 +3,7 @@ import SliderNews from '../../components/SliderNews/SliderNews';
 import Slider from '../../components/slider/Slider';
 import { getHttpRequest } from '../../helper/axios/index';
 import { news } from '../../utils/homeContent';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import photoBg from '../../assets/images/Foto-6.jpg';
 import './homeScreen.css';
 const HomeScreen = () => {
@@ -14,24 +14,24 @@ const HomeScreen = () => {
     {
       imgUrl:
         'http://cssslider.com/sliders/demo-17/data1/images/picjumbo.com_hanv9909.jpg',
-      label: 'lorem ipsum',
+      label: 'Imagen',
     },
     {
       imgUrl:
         'https://wowslider.com/sliders/demo-77/data1/images/road220058.jpg',
-      label: 'lorem ipsum2',
+      label: 'Imagen2',
     },
     {
       imgUrl:
         'https://store.hp.com/app/assets/images/uploads/prod/25-best-hd-wallpapers-laptops159561982840438.jpg',
-      label: 'lorem ipsum3',
+      label: 'Imagen3',
     },
   ];
 
   useEffect(() => {
     getHttpRequest(`${process.env.REACT_APP_API_URL}/organizations/1/public`)
-      .then(res => setState(res.data))
-      .catch(err => console.error(err));
+      .then((res) => setState(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -52,7 +52,7 @@ const HomeScreen = () => {
           }}
         >
           <div className="text">
-            <h1 className="welcome-text">Welcome!</h1>
+            <h1 className="welcome-text">Bienvenido!</h1>
             <p className="text-justify welcome-text">{welcomeText}</p>
           </div>
         </section>

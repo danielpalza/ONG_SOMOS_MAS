@@ -40,17 +40,17 @@ function FormLogin() {
   const handleLogin = (user, setSubmitting) => {
     const { email, password } = user;
     postHttpRequest('/auth/login', { email, password })
-      .then(res => {
+      .then((res) => {
         const { token } = res.data;
         window.localStorage.setItem('token', token);
         // save user Info in Redux
-        getHttpRequest('/auth/me').then(res => {
+        getHttpRequest('/auth/me').then((res) => {
           console.log(res.data);
           dispatch(login(res.data));
           setRedirect('/');
         });
       })
-      .catch(error => {
+      .catch((error) => {
         let errorMessage = 'Ha ocurrido un error al iniciar sesión.';
         if (error.response) {
           errorMessage = error.response.data.error || errorMessage;
@@ -86,7 +86,7 @@ function FormLogin() {
           >
             <div class="container">
               <div class="block-heading">
-                <h2 class="text-info"> Login </h2>
+                <h2 class="text-info"> Iniciar Sesión </h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
                   quam urna
@@ -119,7 +119,7 @@ function FormLogin() {
                         value={values.email}
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        placeholder="Insert your Email"
+                        placeholder="Ingrese Email"
                         className={
                           touched.email && errors.email
                             ? 'border border-danger form-control'
@@ -135,14 +135,14 @@ function FormLogin() {
                       />
                     </div>
                     <div className="form-group">
-                      <label for="password">Password:</label>
+                      <label for="password">Contraseña:</label>
                       <input
                         type="password"
                         name="password"
                         value={values.password}
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        placeholder="Insert password"
+                        placeholder="Ingrese Contraseña"
                         className={
                           touched.password && errors.password
                             ? 'border border-danger form-control'

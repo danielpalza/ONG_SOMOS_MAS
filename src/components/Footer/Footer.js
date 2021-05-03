@@ -44,12 +44,11 @@ const Footer = () => {
             <img
               src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6CzBwCHF-el2j36Gj3MCGzjG2gMFi7dp2-w&usqp=CAU"
               alt="Logo"
-              className="py-3"
-              width="130"
+              style={{ width: '50%', height: '80%' }}
             />
           </div>
           <div className="col-sm-4 d-flex flex-column">
-            <h4>Websites</h4>
+            <h4>Sitios</h4>
             <ul style={{ marginTop: '15px' }}>
               <li>
                 <a className="py-3 text-white" href="http://www.ONGTeam22.com">
@@ -69,7 +68,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-sm-4 d-flex flex-column">
-            <h4>Social Media</h4>
+            <h4>Redes sociales</h4>
 
             <ul style={{ marginTop: '10px' }}>
               <li>
@@ -134,7 +133,7 @@ const Footer = () => {
       </div>
       <div className="footer-copyright bg-copyright">
         <p style={{ color: 'white', fontWeight: 'lighter' }}>
-          © 2021 Copyright Text
+          © 2021 Alkemy-ong
         </p>
       </div>
     </footer>

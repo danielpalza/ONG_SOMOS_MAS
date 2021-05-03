@@ -15,8 +15,8 @@ function Index() {
   useEffect(() => {
     if (id) {
       requestNews(id)
-        .then(res => setDetailNew(res.data))
-        .catch(err =>
+        .then((res) => setDetailNew(res.data))
+        .catch((err) =>
           setMessage(
             ErrorAlert({
               title: 'Ocurrio un error!',
@@ -74,7 +74,7 @@ function Index() {
                 <div class="row align-items-center">
                   <div class="col-md-12">
                     <p className="display-2 text-center text-info">
-                      No News Available
+                      No hay noticia!
                     </p>
                   </div>
                   <div class="col-md-6">
