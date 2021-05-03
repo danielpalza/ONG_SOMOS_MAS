@@ -3,6 +3,7 @@ import SliderNews from '../../components/SliderNews/SliderNews';
 import Slider from '../../components/slider/Slider';
 import { getHttpRequest } from '../../helper/axios/index';
 import { news } from '../../utils/homeContent';
+import {Helmet} from 'react-helmet';
 import photoBg from '../../assets/images/Foto-6.jpg';
 import './homeScreen.css';
 const HomeScreen = () => {
@@ -35,6 +36,10 @@ const HomeScreen = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Somos Más - Principal</title>
+      </Helmet>
       <main className="page landing-page">
         <section className="clean-block clean-info dark">
           <Slider slides={sliderImg} />

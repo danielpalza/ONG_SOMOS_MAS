@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import ErrorAlert from '../../../components/Alerts/ErrorAlert';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import {Helmet} from 'react-helmet';
 
 import { postData, registerSchema } from './utils';
 
@@ -52,71 +53,77 @@ const RegisterForm = () => {
   };
   
   return (
-    <main class="page contact-us-page">
-      <section class="clean-block clean-form dark">
-        <div class="container form">
-          <div class="block-heading">
-            <h2 class="text-info"> Sign Up Here </h2>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Somos Más - Registrarse</title>
+      </Helmet>
+      <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+          <div class="container form">
+            <div class="block-heading">
+              <h2 class="text-info"> Sign Up Here </h2>
+            </div>
+            <Formik
+              initialValues={inicialValues}
+              onSubmit={values => handleRegister(values)}
+              validationSchema={registerSchema}
+            >
+              <Form className="content d-flex flex-column">
+                <p> {message} </p>
+                <div className="d-flex flex-column spacing">
+                  <label className="text-left"> Name: </label>
+                  <Field className="form-control" name="name" type="text" />
+                  <ErrorMessage
+                    className="alert alert-danger"
+                    component="label"
+                    name="name"
+                  />
+                </div>
+                <div className="d-flex flex-column spacing">
+                  <label className="text-left"> Lastname: </label>
+                  <Field className="form-control" name="surname" type="text" />
+                  <ErrorMessage
+                    className="alert alert-danger"
+                    component="label"
+                    name="surname"
+                  />
+                </div>
+                <div className="d-flex flex-column spacing">
+                  <label className="text-left"> Email: </label>
+                  <Field className="form-control" name="email" type="email" />
+                  <ErrorMessage
+                    className="alert alert-danger"
+                    component="label"
+                    name="email"
+                  />
+                </div>
+                <div className="d-flex flex-column spacing">
+                  <label className="text-left"> Password: </label>
+                  <Field
+                    className="form-control"
+                    name="password"
+                    type="password"
+                  />
+                  <ErrorMessage
+                    className="alert alert-danger"
+                    component="label"
+                    name="password"
+                  />
+                </div>
+                <button
+                  style={{ background: '#9ac9fb' }}
+                  type="submit"
+                  className="btn "
+                >
+                  Sign up
+                </button>
+              </Form>
+            </Formik>
           </div>
-          <Formik
-            initialValues={inicialValues}
-            onSubmit={values => handleRegister(values)}
-            validationSchema={registerSchema}
-          >
-            <Form className="content d-flex flex-column">
-              <p> {message} </p>
-              <div className="d-flex flex-column spacing">
-                <label className="text-left"> Name: </label>
-                <Field className="form-control" name="name" type="text" />
-                <ErrorMessage
-                  className="alert alert-danger"
-                  component="label"
-                  name="name"
-                />
-              </div>
-              <div className="d-flex flex-column spacing">
-                <label className="text-left"> Lastname: </label>
-                <Field className="form-control" name="surname" type="text" />
-                <ErrorMessage
-                  className="alert alert-danger"
-                  component="label"
-                  name="surname"
-                />
-              </div>
-              <div className="d-flex flex-column spacing">
-                <label className="text-left"> Email: </label>
-                <Field className="form-control" name="email" type="email" />
-                <ErrorMessage
-                  className="alert alert-danger"
-                  component="label"
-                  name="email"
-                />
-              </div>
-              <div className="d-flex flex-column spacing">
-                <label className="text-left"> Password: </label>
-                <Field
-                  className="form-control"
-                  name="password"
-                  type="password"
-                />
-                <ErrorMessage
-                  className="alert alert-danger"
-                  component="label"
-                  name="password"
-                />
-              </div>
-              <button
-                style={{ background: '#9ac9fb' }}
-                type="submit"
-                className="btn "
-              >
-                Sign up
-              </button>
-            </Form>
-          </Formik>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 };
 

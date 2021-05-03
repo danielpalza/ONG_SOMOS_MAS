@@ -3,6 +3,8 @@ import CustomTextArea from '../../../components/CustomTextArea/CustomTextArea';
 import EmailInput from '../../../components/EmailInput/EmailInput';
 import TextInput from '../../../components/TextInput/TextInput';
 import CustomButton from '../../../components/CustomButton/CustomButton';
+import {Helmet} from 'react-helmet';
+
 import photoBg from '../../../assets/images/Foto-7.jpg';
 import './Contact.css';
 import axios from 'axios';
@@ -48,63 +50,69 @@ function Contact() {
   };
 
   return (
-    <main className="page">
-      <div className="row">
-        <div className="col-sm-12 col-lg-6">
-          <section
-            className="clean-block clean-hero bg"
-            style={{
-              backgroundImage: `url(${photoBg})`,
-              color: 'rgba(250, 250, 136, 0.85)',
-            }}
-          >
-            <div className="text">
-              <h1 className="display-2 welcome-text">Contact Us</h1>
-              <p className="text-justify welcome-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                molestiae unde reprehenderit maiores natus alias, blanditiis
-                necessitatibus molestias maxime placeat neque, explicabo
-                assumenda at nulla distinctio itaque tempora modi. Vitae.
-              </p>
-            </div>
-          </section>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Somos Más - Contacto</title>
+      </Helmet>
+      <main className="page">
+        <div className="row">
+          <div className="col-sm-12 col-lg-6">
+            <section
+              className="clean-block clean-hero bg"
+              style={{
+                backgroundImage: `url(${photoBg})`,
+                color: 'rgba(250, 250, 136, 0.85)',
+              }}
+            >
+              <div className="text">
+                <h1 className="display-2 welcome-text">Contact Us</h1>
+                <p className="text-justify welcome-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+                  molestiae unde reprehenderit maiores natus alias, blanditiis
+                  necessitatibus molestias maxime placeat neque, explicabo
+                  assumenda at nulla distinctio itaque tempora modi. Vitae.
+                </p>
+              </div>
+            </section>
+          </div>
+          <div className="col-sm-12 col-lg-6">
+            <section
+              style={{
+                paddingTop: '150px',
+              }}
+              className="clean-block clean-form"
+            >
+              <h2 className="text-info">Contact Us Here!</h2>
+              <form className="d-flex flex-column mt-5">
+                <TextInput
+                  onChange={e => setName(e.target.value)}
+                  value={name}
+                  label="Username"
+                  placeholder="Name"
+                />
+                <EmailInput
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
+                <CustomTextArea
+                  value={message}
+                  label="Message"
+                  placeholder="Enter your message..."
+                  onChange={e => setMessage(e.target.value)}
+                />
+                {error && (
+                  <div className="alert alert-danger" role="alert">
+                    {error}
+                  </div>
+                )}
+                <CustomButton onClick={handleSubmit}>Submit</CustomButton>
+              </form>
+            </section>
+          </div>
         </div>
-        <div className="col-sm-12 col-lg-6">
-          <section
-            style={{
-              paddingTop: '150px',
-            }}
-            className="clean-block clean-form"
-          >
-            <h2 className="text-info">Contact Us Here!</h2>
-            <form className="d-flex flex-column mt-5">
-              <TextInput
-                onChange={e => setName(e.target.value)}
-                value={name}
-                label="Username"
-                placeholder="Name"
-              />
-              <EmailInput
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-              <CustomTextArea
-                value={message}
-                label="Message"
-                placeholder="Enter your message..."
-                onChange={e => setMessage(e.target.value)}
-              />
-              {error && (
-                <div className="alert alert-danger" role="alert">
-                  {error}
-                </div>
-              )}
-              <CustomButton onClick={handleSubmit}>Submit</CustomButton>
-            </form>
-          </section>
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
 
