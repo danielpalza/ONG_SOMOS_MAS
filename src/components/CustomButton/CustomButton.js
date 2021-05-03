@@ -5,7 +5,7 @@ function CustomButton({ children, onClick }) {
     <div>
       <button
         type="submit"
-        className="btn  btn-block"
+        className="btn custom__btn-forms btn-block"
         onClick={onClick}
         style={{ background: '#9ac9fb' }}
       >

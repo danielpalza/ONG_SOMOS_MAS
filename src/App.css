@@ -75,3 +75,7 @@
     font-family: 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     min-height: 20vh;
   }
+.custom__btn-forms {
+  width: 60%;
+  margin: 20px auto;
+}

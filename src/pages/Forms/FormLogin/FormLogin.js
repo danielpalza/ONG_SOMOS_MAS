@@ -161,10 +161,9 @@ function FormLogin() {
                     <div className="form-group text-center">
                       <button
                         type="submit"
-                        className="btn"
-                        style={{ background: '#9ac9fb' }}
-                        disabled={isSubmitting}
-                      >
+                        className="btn custom__btn-forms"
+                        style={{ background: "#9ac9fb" }}
+                        disabled={isSubmitting}>
                         Entrar
                       </button>
                     </div>

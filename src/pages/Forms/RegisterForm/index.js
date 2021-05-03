@@ -112,10 +112,9 @@ const RegisterForm = () => {
                   />
                 </div>
                 <button
-                  style={{ background: '#9ac9fb' }}
+                  style={{ background: "#9ac9fb" }}
                   type="submit"
-                  className="btn "
-                >
+                  className="btn custom__btn-forms ">
                   Registrar
                 </button>
               </Form>
