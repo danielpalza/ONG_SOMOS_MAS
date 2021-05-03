@@ -11,10 +11,17 @@ export const actsSlice = createSlice({
     setActivity: (state, action) => {
       state.activity = action.payload;
     },
+    removeActivity: (state, action) => {
+      state.activity = state.activity.filter(act => act.id !== action.payload)
+    },
+    editActivity: (state, action) => {
+      const { id } = action.payload
+      state.activity[id] = action.payload
+    }
   },
 });
 
-export const { setActivity } = actsSlice.actions;
+export const { setActivity, removeActivity, editActivity } = actsSlice.actions;
 
 export const selectActivity = (state) => state.activity.activity;
 
