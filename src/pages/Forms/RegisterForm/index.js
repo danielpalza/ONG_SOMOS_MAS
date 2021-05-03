@@ -73,20 +73,20 @@ const RegisterForm = () => {
                 <p> {message} </p>
                 <div className="d-flex flex-column spacing">
                   <label className="text-left"> Name: </label>
-                  <Field className="form-control" name="name" type="text" />
+                  <Field className="form-control" name="firstName" type="text" />
                   <ErrorMessage
                     className="alert alert-danger"
                     component="label"
-                    name="name"
+                    name="firstName"
                   />
                 </div>
                 <div className="d-flex flex-column spacing">
                   <label className="text-left"> Lastname: </label>
-                  <Field className="form-control" name="surname" type="text" />
+                  <Field className="form-control" name="lastName" type="text" />
                   <ErrorMessage
                     className="alert alert-danger"
                     component="label"
-                    name="surname"
+                    name="lastName"
                   />
                 </div>
                 <div className="d-flex flex-column spacing">
