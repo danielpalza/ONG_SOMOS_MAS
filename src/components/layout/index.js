@@ -2,7 +2,6 @@ import React from 'react';
 
 /* Componentes */
 import HomePage from '../../pages/homeScreen/homeScreen';
-import React from 'react';
 import RegisterPage from '../../pages/Forms/RegisterForm';
 import LoginPage from '../../pages/login';
 import LogoutPage from '../../pages/logout/Logout';
