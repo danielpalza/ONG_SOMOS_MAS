@@ -58,7 +58,7 @@ const NewsBack = () => {
   return (
     <>
       <div className="table-responsive">
-        <table className="table">
+        <table className="table bg-white" id="tableNews">
           <thead>
             <tr>
               <th>ID</th>
