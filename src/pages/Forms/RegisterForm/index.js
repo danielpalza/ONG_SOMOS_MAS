@@ -50,19 +50,7 @@ const RegisterForm = () => {
       })
       .catch(err => err);
   };
-
-  const history = useHistory();
-  useEffect(() => {
-    //Redirect to "/" when the request is ok
-    if (redirect) {
-      return <Redirect to={redirect} />;
-    }
-
-    if (localStorage.getItem('token')) {
-      history.push('/');
-    }
-  }, []);
-
+  
   return (
     <main class="page contact-us-page">
       <section class="clean-block clean-form dark">
