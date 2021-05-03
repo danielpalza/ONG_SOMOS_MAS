@@ -19,11 +19,6 @@ export const putHttpRequest = (url, data) => {
     return axios(config);
 };
 
-export const putHttpRequest = (url, data) => {
-    const config = createAxiosConfig(`${BASE_URL}${url}`, data);
-    config.method = 'put';
-    return axios(config);
-};
 export const postHttpRequest = (url, data) => {
     const config = createAxiosConfig(`${BASE_URL}${url}`, data);
     config.method = 'post';
@@ -31,7 +26,7 @@ export const postHttpRequest = (url, data) => {
     return axios(config);
 };
 
-export const deleteHttpRequest = url => {
+export const deleteHttpRequest = (url) => {
     const config = createAxiosConfig(`${BASE_URL}${url}`);
     config.method = 'delete';
 
